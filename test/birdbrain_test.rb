@@ -1,13 +1,18 @@
-# frozen_string_literal: true
-
-require "test_helper"
+#-----------------------------------------------------------------------------------------------------------------------------------
+# Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
+#-----------------------------------------------------------------------------------------------------------------------------------
+require 'test_helper'
 
 class BirdbrainTest < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::Birdbrain::VERSION
+  def test_version_number_available
+    refute_nil Birdbrain::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
+  def test_connection
+    birdbrain = BirdbrainConnection.new
+
+    assert birdbrain.device == BirdbrainConnection::DEFAULT_DEVICE
+
+    assert true
   end
 end

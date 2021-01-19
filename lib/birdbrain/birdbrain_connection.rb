@@ -1,7 +1,16 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-# $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+class BirdbrainConnection
+  DEFAULT_DEVICE = 'A'
 
-require 'birdbrain'
-require 'minitest/autorun'
+  attr_accessor :device
+
+  def initialize(device = DEFAULT_DEVICE)
+    self.device = device
+  end
+
+  def close
+    self.device = nil
+  end
+end
