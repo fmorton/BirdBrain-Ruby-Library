@@ -1,3 +1,5 @@
+Style/Documentation:
+  Enabled: false
 Layout/LineLength:
   Max: 132
 Style/FrozenStringLiteralComment:
@@ -57,7 +59,7 @@ Lint/UselessMethodDefinition: # (new in 0.90)
 Lint/UselessTimes: # (new in 0.91)
   Enabled: true
 Style/AccessorGrouping: # (new in 0.87)
-  Enabled: true
+  Enabled: false
 Style/BisectedAttrAccessor: # (new in 0.87)
   Enabled: true
 Style/CaseLikeIf: # (new in 0.88)

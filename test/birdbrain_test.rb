@@ -12,6 +12,7 @@ class BirdbrainTest < Minitest::Test
     birdbrain = BirdbrainConnection.new
 
     assert birdbrain.device == BirdbrainConnection::DEFAULT_DEVICE
+    assert birdbrain.connected?
 
     assert true
   end
