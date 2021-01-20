@@ -29,6 +29,14 @@ class BirdbrainConnection
     BirdbrainMicrobitInput.shaking?(device) if connected?
   end
 
+  def microbit_display(led_list)
+    BirdbrainMicrobitOutput.microbit_display(device, led_list) if connected?
+  end
+
+  def microbit_clear_display
+    BirdbrainMicrobitOutput.microbit_clear_display(device) if connected?
+  end
+
   def get_light(port)
     BirdbrainInput.get_light(device, port) if connected?
   end

@@ -2,6 +2,10 @@ Metrics/MethodLength:
   Max: 200
 Style/Documentation:
   Enabled: false
+Style/TernaryParentheses:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Max: 10
 Layout/LineLength:
   Max: 132
 Style/FrozenStringLiteralComment:
