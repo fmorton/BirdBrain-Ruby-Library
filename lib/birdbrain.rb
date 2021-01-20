@@ -5,8 +5,8 @@ module Birdbrain
   class Error < StandardError; end
 
   require_relative 'birdbrain/version'
-  require_relative 'birdbrain/birdbrain_connection'
   require_relative 'birdbrain/birdbrain_request'
   require_relative 'birdbrain/birdbrain_input'
   require_relative 'birdbrain/birdbrain_output'
+  require_relative 'birdbrain/birdbrain_connection'
 end
