@@ -27,8 +27,4 @@ class BirdbrainInput < BirdbrainRequest
   def self.get_voltage(device, port)
     get_sensor(device, port, 0.012941176470588235) # factor=3.3/255
   end
-
-  def self.shaking?(device)
-    request_status(response_body('hummingbird', 'in', 'orientation', 'Shake', device))
-  end
 end
