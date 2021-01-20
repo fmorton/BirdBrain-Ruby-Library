@@ -32,4 +32,8 @@ class BirdbrainConnection
   def led(port, intensity)
     BirdbrainOutput.led(device, port, intensity) if connected?
   end
+
+  def tri_led(port, r_intensity, g_intensity, b_intensity)
+    BirdbrainOutput.tri_led(device, port, r_intensity, g_intensity, b_intensity) if connected?
+  end
 end
