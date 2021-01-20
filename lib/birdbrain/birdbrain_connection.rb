@@ -22,11 +22,11 @@ class BirdbrainConnection
   end
 
   def microbit?
-    BirdbrainInput.microbit?(device) if connected?
+    BirdbrainMicrobitInput.microbit?(device) if connected?
   end
 
   def shaking?
-    BirdbrainInput.shaking?(device) if connected?
+    BirdbrainMicrobitInput.shaking?(device) if connected?
   end
 
   def get_light(port)

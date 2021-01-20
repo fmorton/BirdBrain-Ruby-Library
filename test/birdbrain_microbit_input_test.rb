@@ -3,14 +3,14 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 require 'test_helper'
 
-class BirdbrainMicrobitTest < Minitest::Test
-  def test_microbit
+class BirdbrainMicrobitInputTest < Minitest::Test
+  def test_microbit_input
     birdbrain = BirdbrainConnection.new
 
     assert birdbrain.microbit?
   end
 
-  def test_input_shaking
+  def test_microbit_input_shaking
     birdbrain = BirdbrainConnection.new
 
     assert_equal(birdbrain.shaking?, false)
