@@ -3,17 +3,10 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 require 'test_helper'
 
-class BirdbrainTest < Minitest::Test
-  def test_version_number_available
-    refute_nil Birdbrain::VERSION
-  end
-
-  def test_connection
+class BirdbrainInputTest < Minitest::Test
+  def test_input_shaking
     birdbrain = BirdbrainConnection.new
 
-    assert birdbrain.device == BirdbrainConnection::DEFAULT_DEVICE
-    assert birdbrain.connected?
-
-    assert true
+    assert_equal(birdbrain.shaking?, false)
   end
 end
