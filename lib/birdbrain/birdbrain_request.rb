@@ -30,11 +30,30 @@ class BirdbrainRequest
 
     !response.nil?
   end
-  # DEBUG
-  # http://127.0.0.1:30061/hummingbird/in/orientation/Shake/A
-  # http://127.0.0.1:30061/hummingbird/in/isHummingbird/static/A
-  # SET LED!!!!!!!!!
-  # http://127.0.0.1:30061/hummingbird/out/led/1/255/A
-  # SET LED!!!!!!!!!
-  # http://127.0.0.1:30061/hummingbird/out/led/1/0/A
+
+  def self.not_connected?(device)
+    !connected?(device)
+  end
+
+  def self.request_status(status)
+    return nil if status.nil?
+
+    return true if status == 'true'
+    return true if status == 'led set'
+
+    # return false if status == 'false'
+
+    false
+  end
+
+  def self.calculate_intensity(intensity)
+    intensity * 255 / 100
+  end
+
+  def self.bounds(input, input_min, input_max)
+    return input_min if input < input_min
+    return input_max if input > input_max
+
+    input
+  end
 end

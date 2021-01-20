@@ -10,15 +10,18 @@ class BirdbrainConnection
   def initialize(device = DEFAULT_DEVICE)
     self.device = device
 
-    # see if device is available
-    self.connected = connected?
+    self.connected = BirdbrainRequest.connected?(device)
   end
 
   def connected?
-    BirdbrainRequest.connected?(device)
+    connected
   end
 
   def close
     self.device = nil
+  end
+
+  def led(port, intensity)
+    BirdbrainOutput.led(device, port, intensity)
   end
 end

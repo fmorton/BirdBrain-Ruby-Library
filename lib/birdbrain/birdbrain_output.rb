@@ -1,12 +1,12 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-module Birdbrain
-  class Error < StandardError; end
+class BirdbrainOutput < BirdbrainRequest
+  def self.led(device, port, intensity)
+    return nil if not_connected?(device)
 
-  require_relative 'birdbrain/version'
-  require_relative 'birdbrain/birdbrain_connection'
-  require_relative 'birdbrain/birdbrain_request'
-  require_relative 'birdbrain/birdbrain_input'
-  require_relative 'birdbrain/birdbrain_output'
+    response = response_body('hummingbird', 'out', 'led', port.to_s, bounds(calculate_intensity(intensity), 0, 100), device)
+
+    request_status(response)
+  end
 end
