@@ -7,7 +7,7 @@ class BirdbrainRequest
   def self.uri(*args)
     uri = 'http://127.0.0.1:30061'
     args.flatten.each { |s| uri += "/#{s}" }
-    puts "DEBUG: uri is #{uri}"
+    puts "TEST: uri is #{uri}"
     uri
   end
 
@@ -45,10 +45,15 @@ class BirdbrainRequest
 
     return true if status == 'true'
     return true if status == 'led set'
+    return true if status == 'servo set'
 
     # return false if status == 'false'
 
     false
+  end
+
+  def self.calculate_angle(intensity)
+    intensity * 255 / 180
   end
 
   def self.calculate_intensity(intensity)

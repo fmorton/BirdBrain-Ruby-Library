@@ -25,6 +25,10 @@ class BirdbrainConnection
     BirdbrainInput.shaking?(device) if connected?
   end
 
+  def servo(port, angle)
+    BirdbrainOutput.servo(device, port, angle) if connected?
+  end
+
   def led(port, intensity)
     BirdbrainOutput.led(device, port, intensity) if connected?
   end
