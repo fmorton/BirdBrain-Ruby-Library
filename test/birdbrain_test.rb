@@ -26,7 +26,7 @@ class BirdbrainTest < Minitest::Test
   def test_output_led
     birdbrain = BirdbrainConnection.new
 
-    assert birdbrain.led(1, 50)
+    assert birdbrain.led(1, 100)
     sleep(1)
     assert birdbrain.led(1, 0)
   end
