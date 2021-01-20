@@ -21,6 +21,26 @@ class BirdbrainConnection
     self.device = nil
   end
 
+  def get_light(port)
+    BirdbrainInput.get_light(device, port) if connected?
+  end
+
+  def get_sound(port)
+    BirdbrainInput.get_sound(device, port) if connected?
+  end
+
+  def get_distance(port)
+    BirdbrainInput.get_distance(device, port) if connected?
+  end
+
+  def get_dial(port)
+    BirdbrainInput.get_dial(device, port) if connected?
+  end
+
+  def get_voltage(port)
+    BirdbrainInput.get_voltage(device, port) if connected?
+  end
+
   def shaking?
     BirdbrainInput.shaking?(device) if connected?
   end
