@@ -17,6 +17,12 @@ class BirdbrainTest < Minitest::Test
     assert true
   end
 
+  def test_input_shake
+    birdbrain = BirdbrainConnection.new
+
+    assert_equal(birdbrain.shake?, false)
+  end
+
   def test_output_led
     birdbrain = BirdbrainConnection.new
 

@@ -21,6 +21,10 @@ class BirdbrainConnection
     self.device = nil
   end
 
+  def shake?
+    BirdbrainInput.shake?(device)
+  end
+
   def led(port, intensity)
     BirdbrainOutput.led(device, port, intensity)
   end
