@@ -21,6 +21,14 @@ class BirdbrainConnection
     self.device = nil
   end
 
+  def microbit?
+    BirdbrainInput.microbit?(device) if connected?
+  end
+
+  def shaking?
+    BirdbrainInput.shaking?(device) if connected?
+  end
+
   def get_light(port)
     BirdbrainInput.get_light(device, port) if connected?
   end
@@ -39,10 +47,6 @@ class BirdbrainConnection
 
   def get_voltage(port)
     BirdbrainInput.get_voltage(device, port) if connected?
-  end
-
-  def shaking?
-    BirdbrainInput.shaking?(device) if connected?
   end
 
   def servo(port, angle)

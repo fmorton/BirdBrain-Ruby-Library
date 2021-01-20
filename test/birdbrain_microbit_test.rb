@@ -4,6 +4,12 @@
 require 'test_helper'
 
 class BirdbrainMicrobitTest < Minitest::Test
+  def test_microbit
+    birdbrain = BirdbrainConnection.new
+
+    assert birdbrain.microbit?
+  end
+
   def test_input_shaking
     birdbrain = BirdbrainConnection.new
 
