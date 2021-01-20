@@ -3,10 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 class BirdbrainInput < BirdbrainRequest
   def self.shaking?(device)
-    return nil if not_connected?(device)
-
-    response = response_body('hummingbird', 'in', 'orientation', 'Shake', device)
-
-    request_status(response)
+    request_status(response_body('hummingbird', 'in', 'orientation', 'Shake', device))
   end
 end

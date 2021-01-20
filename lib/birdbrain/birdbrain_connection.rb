@@ -22,10 +22,10 @@ class BirdbrainConnection
   end
 
   def shaking?
-    BirdbrainInput.shaking?(device)
+    BirdbrainInput.shaking?(device) if connected?
   end
 
   def led(port, intensity)
-    BirdbrainOutput.led(device, port, intensity)
+    BirdbrainOutput.led(device, port, intensity) if connected?
   end
 end
