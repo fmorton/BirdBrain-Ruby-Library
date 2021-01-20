@@ -20,7 +20,14 @@ class BirdbrainOutput < BirdbrainRequest
   end
 
   def self.rotation_servo(device, port, speed)
-    # QUESTION: why this range
+    # QUESTION: why this range...255 means stop
     request_status(response_body('hummingbird', 'out', 'rotation', port.to_s, bounds(calculate_speed(speed), 99, 145, 255), device))
+  end
+
+  def self.play_note(device, note, beats)
+    calculated_note = bounds(note, 32, 135)
+    calculated_beats = bounds(beats, 0, 16) * 1000  # 100=(60000 / TEMPO) where TEMPO=60
+
+    request_status(response_body('hummingbird', 'out', 'playnote', calculated_note, calculated_beats, device))
   end
 end

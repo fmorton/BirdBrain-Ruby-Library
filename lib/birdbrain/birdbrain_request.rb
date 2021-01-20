@@ -47,6 +47,7 @@ class BirdbrainRequest
     return true if status == 'led set'
     return true if status == 'triled set'
     return true if status == 'servo set'
+    return true if status == 'buzzer set'
 
     # return false if status == 'false'
 
