@@ -29,6 +29,10 @@ class BirdbrainConnection
     BirdbrainOutput.servo(device, port, angle) if connected?
   end
 
+  def rotation_servo(port, speed)
+    BirdbrainOutput.rotation_servo(device, port, speed) if connected?
+  end
+
   def led(port, intensity)
     BirdbrainOutput.led(device, port, intensity) if connected?
   end

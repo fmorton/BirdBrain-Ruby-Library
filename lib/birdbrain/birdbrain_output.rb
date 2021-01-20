@@ -15,6 +15,12 @@ class BirdbrainOutput < BirdbrainRequest
   end
 
   def self.servo(device, port, angle)
+    # QUESTION: 254 max (255 is ignored)
     request_status(response_body('hummingbird', 'out', 'servo', port.to_s, bounds(calculate_angle(angle), 0, 254), device))
+  end
+
+  def self.rotation_servo(device, port, speed)
+    # QUESTION: why this range
+    request_status(response_body('hummingbird', 'out', 'rotation', port.to_s, bounds(calculate_speed(speed), 99, 145, 255), device))
   end
 end

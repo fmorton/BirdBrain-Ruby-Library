@@ -61,7 +61,16 @@ class BirdbrainRequest
     intensity * 255 / 100
   end
 
-  def self.bounds(input, input_min, input_max)
+  def self.calculate_speed(speed)
+    return 255 if speed.between?(-10, 10)
+
+    # QUESTION: why this calculation instead of normal mapping to 0..255 (and 255 means stop)
+    ((speed * 23 / 100) + 122)
+  end
+
+  def self.bounds(input, input_min, input_max, pass_through_input = nil)
+    return input if !pass_through_input.nil? && (input == pass_through_input)
+
     return input_min if input < input_min
     return input_max if input > input_max
 

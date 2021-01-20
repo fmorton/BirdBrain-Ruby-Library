@@ -52,4 +52,19 @@ class BirdbrainTest < Minitest::Test
     sleep(1)
     assert birdbrain.servo(1, 90)
   end
+
+  def test_output_rotation_servo
+    birdbrain = BirdbrainConnection.new
+
+    assert birdbrain.rotation_servo(3, 100)
+    sleep(1)
+    assert birdbrain.rotation_servo(3, 50)
+    sleep(1)
+    assert birdbrain.rotation_servo(3, -50)
+    sleep(1)
+    assert birdbrain.rotation_servo(3, -100)
+    sleep(1)
+    assert birdbrain.rotation_servo(3, 0)
+    sleep(1)
+  end
 end
