@@ -7,11 +7,16 @@ class BirdbrainRequest
   def self.uri(*args)
     uri = 'http://127.0.0.1:30061'
     args.flatten.each { |s| uri += "/#{s}" }
+    puts "DEBUG: uri is #{uri}"
     uri
   end
 
   def self.response(*args)
-    Net::HTTP.get_response(URI.parse(uri(args)))
+    response = Net::HTTP.get_response(URI.parse(uri(args)))
+
+    sleep(0.01) # HACK: prevent http requests from overloading the bluebird connector
+
+    response
   rescue Errno::ECONNREFUSED
     nil
   end
