@@ -49,6 +49,7 @@ class BirdbrainRequest
     return true if status == 'servo set'
     return true if status == 'buzzer set'
     return true if status == 'symbol set'
+    return true if status == 'print set'
 
     # return false if status == 'false'
 

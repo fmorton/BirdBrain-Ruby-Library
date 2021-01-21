@@ -20,4 +20,11 @@ class BirdbrainMicrobitOutputTest < Minitest::Test
       sleep(0.5)
     end
   end
+
+  def test_microbit_print
+    birdbrain = BirdbrainConnection.new
+
+    assert birdbrain.microbit_print('A TEST')
+    sleep(4)
+  end
 end

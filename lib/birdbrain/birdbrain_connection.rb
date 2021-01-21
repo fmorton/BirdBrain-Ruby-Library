@@ -37,6 +37,10 @@ class BirdbrainConnection
     BirdbrainMicrobitOutput.microbit_clear_display(device) if connected?
   end
 
+  def microbit_print(message)
+    BirdbrainMicrobitOutput.microbit_print(device, message) if connected?
+  end
+
   def get_light(port)
     BirdbrainInput.get_light(device, port) if connected?
   end

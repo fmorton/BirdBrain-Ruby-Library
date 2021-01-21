@@ -11,4 +11,10 @@ class BirdbrainMicrobitOutput < BirdbrainRequest
   def self.microbit_clear_display(device)
     microbit_display(device, [false] * 25)
   end
+
+  def self.microbit_print(device, message)
+    calculated_message = message.gsub(' ', '%20')
+
+    request_status(response_body('hummingbird', 'out', 'print', calculated_message, device))
+  end
 end
