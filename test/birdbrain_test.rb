@@ -1,9 +1,9 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-require 'test_helper'
+require 'birdbrain_test_setup'
 
-class BirdbrainTest < Minitest::Test
+class BirdbrainTest < BirdbrainTestSetup
   def test_version_number_available
     refute_nil Birdbrain::VERSION
   end
