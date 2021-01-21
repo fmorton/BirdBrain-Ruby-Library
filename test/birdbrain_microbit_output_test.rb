@@ -59,6 +59,31 @@ class BirdbrainMicrobitOutputTest < Minitest::Test
     assert hummingbird.microbit_clear_display
   end
 
+  def test_microbit_point
+    hummingbird = BirdbrainHummingbird.new
+
+    assert hummingbird.microbit_point(1, 1, 1)
+    sleep(1)
+    assert hummingbird.microbit_point(2, 2, 1)
+    sleep(1)
+    assert hummingbird.microbit_point(3, 3, 1)
+    sleep(1)
+    assert hummingbird.microbit_point(4, 4, 1)
+    sleep(1)
+    assert hummingbird.microbit_point(5, 5, 1)
+    sleep(2)
+    assert hummingbird.microbit_point(1, 5, 1)
+    sleep(1)
+    assert hummingbird.microbit_point(2, 4, 1)
+    sleep(1)
+    assert hummingbird.microbit_point(4, 2, 1)
+    sleep(1)
+    assert hummingbird.microbit_point(5, 1, 1)
+    sleep(4)
+
+    assert hummingbird.microbit_clear_display
+  end
+
   def test_microbit_print
     hummingbird = BirdbrainHummingbird.new
 

@@ -40,6 +40,10 @@ class BirdbrainHummingbird
     BirdbrainMicrobitOutput.microbit_clear_display(state, device) if connected?
   end
 
+  def microbit_point(x, y, value)
+    BirdbrainMicrobitOutput.microbit_point(state, device, x, y, value) if connected?
+  end
+
   def microbit_print(message)
     BirdbrainMicrobitOutput.microbit_print(device, message) if connected?
   end
