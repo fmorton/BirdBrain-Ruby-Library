@@ -4,10 +4,13 @@
 class BirdbrainHummingbird
   DEFAULT_DEVICE = 'A'
 
+  attr_accessor :state
   attr_accessor :connected
   attr_accessor :device
 
   def initialize(device = DEFAULT_DEVICE)
+    self.state = BirdbrainState.new
+
     self.device = device
 
     self.connected = BirdbrainRequest.connected?(device)
@@ -30,11 +33,11 @@ class BirdbrainHummingbird
   end
 
   def microbit_display(led_list)
-    BirdbrainMicrobitOutput.microbit_display(device, led_list) if connected?
+    BirdbrainMicrobitOutput.microbit_display(state, device, led_list) if connected?
   end
 
   def microbit_clear_display
-    BirdbrainMicrobitOutput.microbit_clear_display(device) if connected?
+    BirdbrainMicrobitOutput.microbit_clear_display(state, device) if connected?
   end
 
   def microbit_print(message)

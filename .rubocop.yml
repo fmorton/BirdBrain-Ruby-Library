@@ -4,10 +4,14 @@ Style/Documentation:
   Enabled: false
 Style/TernaryParentheses:
   Enabled: false
+Style/NumericPredicate:
+  Enabled: false
 Metrics/CyclomaticComplexity:
   Max: 12
 Metrics/PerceivedComplexity:
   Max: 12
+Metrics/AbcSize:
+  Max: 200
 Layout/LineLength:
   Max: 132
 Style/FrozenStringLiteralComment:
