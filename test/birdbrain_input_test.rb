@@ -5,38 +5,38 @@ require 'test_helper'
 
 class BirdbrainInputTest < Minitest::Test
   def test_input_get_light
-    birdbrain = BirdbrainConnection.new
+    hummingbird = BirdbrainHummingbird.new
 
-    assert birdbrain.get_light(1)
+    assert hummingbird.get_light(1)
   end
 
   def test_input_get_sound
-    birdbrain = BirdbrainConnection.new
+    hummingbird = BirdbrainHummingbird.new
 
-    assert birdbrain.get_sound(1)
+    assert hummingbird.get_sound(1)
   end
 
   def test_input_get_distance
-    birdbrain = BirdbrainConnection.new
+    hummingbird = BirdbrainHummingbird.new
 
-    assert birdbrain.get_distance(1)
+    assert hummingbird.get_distance(1)
   end
 
   def test_input_get_dial
-    birdbrain = BirdbrainConnection.new
+    hummingbird = BirdbrainHummingbird.new
 
-    assert birdbrain.get_dial(1)
+    assert hummingbird.get_dial(1)
   end
 
   def test_input_get_voltage
-    birdbrain = BirdbrainConnection.new
+    hummingbird = BirdbrainHummingbird.new
 
-    assert birdbrain.get_voltage(1)
+    assert hummingbird.get_voltage(1)
   end
 
   def test_input_shaking
-    birdbrain = BirdbrainConnection.new
+    hummingbird = BirdbrainHummingbird.new
 
-    assert_equal(birdbrain.shaking?, false)
+    assert_equal(hummingbird.shaking?, false)
   end
 end

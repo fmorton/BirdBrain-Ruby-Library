@@ -9,10 +9,10 @@ class BirdbrainTest < Minitest::Test
   end
 
   def test_connection
-    birdbrain = BirdbrainConnection.new
+    hummingbird = BirdbrainHummingbird.new
 
-    assert birdbrain.device == BirdbrainConnection::DEFAULT_DEVICE
-    assert birdbrain.connected?
+    assert hummingbird.device == BirdbrainHummingbird::DEFAULT_DEVICE
+    assert hummingbird.connected?
 
     assert true
   end

@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-class BirdbrainConnection
+class BirdbrainHummingbird
   DEFAULT_DEVICE = 'A'
 
   attr_accessor :connected
