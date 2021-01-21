@@ -32,8 +32,8 @@ class BirdbrainHummingbird
     BirdbrainMicrobitInput.microbit_accelerometer(device) if connected?
   end
 
-  def shaking?
-    BirdbrainMicrobitInput.shaking?(device) if connected?
+  def microbit_shaking?
+    BirdbrainMicrobitInput.microbit_shaking?(device) if connected?
   end
 
   def microbit_display(led_list)

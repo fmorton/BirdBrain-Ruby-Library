@@ -24,7 +24,7 @@ class BirdbrainInputTest < BirdbrainTestSetup
     assert @hummingbird.get_voltage(1)
   end
 
-  def test_input_shaking
-    assert_equal(@hummingbird.shaking?, false)
+  def test_input_microbit_shaking
+    assert_equal(@hummingbird.microbit_shaking?, false)
   end
 end
