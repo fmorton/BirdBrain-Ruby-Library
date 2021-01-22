@@ -7,7 +7,7 @@ class BirdbrainRequest
   def self.uri(*args)
     uri = 'http://127.0.0.1:30061'
     args.flatten.each { |s| uri += "/#{s}" }
-    puts "TEST: uri is #{uri}"
+    # puts "TEST: uri is #{uri}"
     uri
   end
 
