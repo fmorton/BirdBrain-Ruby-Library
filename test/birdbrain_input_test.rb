@@ -4,6 +4,10 @@
 require 'birdbrain_test_setup'
 
 class BirdbrainInputTest < BirdbrainTestSetup
+  def test_input_hummingbird?
+    assert @hummingbird.hummingbird?
+  end
+
   def test_input_get_light
     assert @hummingbird.get_light(1)
   end

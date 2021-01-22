@@ -5,6 +5,10 @@ class BirdbrainState
   attr_accessor :microbit_display_map
 
   def initialize
+    microbit_display_map_clear
+  end
+
+  def microbit_display_map_clear
     self.microbit_display_map = BirdbrainState.microbit_empty_display_map
   end
 

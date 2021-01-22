@@ -20,8 +20,18 @@ class BirdbrainHummingbird
     connected
   end
 
-  def close
+  def stop_all
+    BirdbrainOutput.stop_all(device) if connected?
+
+    state.microbit_display_map_clear unless state.nil?
+
+    self.connected = false
     self.device = nil
+    self.state = nil
+  end
+
+  def hummingbird?
+    BirdbrainInput.hummingbird?(device) if connected?
   end
 
   def microbit?

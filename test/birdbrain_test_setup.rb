@@ -7,4 +7,10 @@ class BirdbrainTestSetup < Minitest::Test
   def setup
     @hummingbird = BirdbrainHummingbird.new
   end
+
+  def after_teardown
+    @hummingbird.stop_all
+
+    super
+  end
 end

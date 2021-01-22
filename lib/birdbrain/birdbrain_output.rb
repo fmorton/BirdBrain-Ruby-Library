@@ -30,4 +30,8 @@ class BirdbrainOutput < BirdbrainRequest
 
     request_status(response_body('hummingbird', 'out', 'playnote', calculated_note, calculated_beats, device))
   end
+
+  def self.stop_all(device)
+    request_status(response_body('hummingbird', 'out', 'stopall', device))
+  end
 end

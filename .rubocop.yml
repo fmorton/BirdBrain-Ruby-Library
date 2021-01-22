@@ -10,6 +10,8 @@ Style/NumericPredicate:
   Enabled: false
 Style/IfUnlessModifier:
   Enabled: false
+Style/SafeNavigation:
+  Enabled: false
 Metrics/CyclomaticComplexity:
   Max: 12
 Metrics/PerceivedComplexity:
