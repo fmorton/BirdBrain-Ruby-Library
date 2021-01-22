@@ -7,7 +7,7 @@ class BirdbrainRequest
   def self.uri(*args)
     uri = 'http://127.0.0.1:30061'
     args.flatten.each { |s| uri += "/#{s}" }
-    # puts "TEST: uri is #{uri}"
+    puts "TEST: uri is #{uri}"
     uri
   end
 
@@ -41,6 +41,8 @@ class BirdbrainRequest
   end
 
   def self.request_status(status)
+    puts "TEST: returning status: #{status.inspect}"
+
     return nil if status.nil?
 
     return true if status == 'true'
@@ -50,10 +52,13 @@ class BirdbrainRequest
     return true if status == 'buzzer set'
     return true if status == 'symbol set'
     return true if status == 'print set'
+    return true if status == 'all stopped'
 
-    # return false if status == 'false'
+    return false if status == 'false'
 
-    false
+    puts "DEBUG: UNKNOWN STATUS $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ #{status.inspect}"
+
+    nil
   end
 
   def self.calculate_angle(intensity)

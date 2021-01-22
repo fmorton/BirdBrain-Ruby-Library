@@ -22,6 +22,10 @@ class BirdbrainMicrobitInput < BirdbrainRequest
     microbit_xyz_values(device, 'Magnetometer')
   end
 
+  def self.microbit_button?(device, button)
+    request_status(response_body('hummingbird', 'in', 'button', button, device))
+  end
+
   def self.microbit_shaking?(device)
     request_status(response_body('hummingbird', 'in', 'orientation', 'Shake', device))
   end
