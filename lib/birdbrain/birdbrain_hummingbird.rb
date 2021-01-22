@@ -36,6 +36,10 @@ class BirdbrainHummingbird
     BirdbrainMicrobitInput.microbit_compass(device) if connected?
   end
 
+  def microbit_magnetometer
+    BirdbrainMicrobitInput.microbit_magnetometer(device) if connected?
+  end
+
   def microbit_shaking?
     BirdbrainMicrobitInput.microbit_shaking?(device) if connected?
   end

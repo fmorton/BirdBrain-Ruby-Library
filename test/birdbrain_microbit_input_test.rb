@@ -9,13 +9,15 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
   end
 
   def test_input_microbit_accelerometer
-    xyz = @hummingbird.microbit_accelerometer
-
-    assert_xyz_results(xyz)
+    assert_xyz_results(@hummingbird.microbit_accelerometer)
   end
 
   def test_input_microbit_compass
     assert (@hummingbird.microbit_compass >= 0) && (@hummingbird.microbit_compass <= 359)
+  end
+
+  def test_input_microbit_magnetometer
+    assert_xyz_results(@hummingbird.microbit_magnetometer)
   end
 
   def test_input_microbit_shaking
