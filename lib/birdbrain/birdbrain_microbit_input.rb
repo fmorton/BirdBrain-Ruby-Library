@@ -10,6 +10,10 @@ class BirdbrainMicrobitInput < BirdbrainRequest
     microbit_xyz_values(device, 'Accelerometer')
   end
 
+  def self.microbit_compass(device)
+    response_body('hummingbird', 'in', 'Compass', device).to_i
+  end
+
   def self.microbit_shaking?(device)
     request_status(response_body('hummingbird', 'in', 'orientation', 'Shake', device))
   end
