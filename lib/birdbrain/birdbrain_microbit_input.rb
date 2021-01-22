@@ -36,6 +36,34 @@ class BirdbrainMicrobitInput < BirdbrainRequest
     ORIENTATION_IN_BETWEEN
   end
 
+  def self.microbit_orientation_screen_up?(device)
+    microbit_orientation_check(device, 0)
+  end
+
+  def self.microbit_orientation_screen_down?(device)
+    microbit_orientation_check(device, 1)
+  end
+
+  def self.microbit_orientation_tilt_left?(device)
+    microbit_orientation_check(device, 2)
+  end
+
+  def self.microbit_orientation_tilt_right?(device)
+    microbit_orientation_check(device, 3)
+  end
+
+  def self.microbit_orientation_logo_up?(device)
+    microbit_orientation_check(device, 4)
+  end
+
+  def self.microbit_orientation_logo_down?(device)
+    microbit_orientation_check(device, 5)
+  end
+
+  def self.microbit_orientation_check(device, index)
+    request_status(response_body('hummingbird', 'in', 'orientation', ORIENTATIONS[index], device))
+  end
+
   def self.microbit_xyz_values(device, sensor)
     x = response_body('hummingbird', 'in', sensor, 'X', device).to_f
     y = response_body('hummingbird', 'in', sensor, 'Y', device).to_f

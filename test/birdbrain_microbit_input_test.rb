@@ -9,7 +9,7 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
   end
 
   def test_input_microbit_accelerometer
-    assert_xyz_results(@hummingbird.microbit_accelerometer)
+    assert assert_xyz_results(@hummingbird.microbit_accelerometer)
   end
 
   def test_input_microbit_compass
@@ -17,7 +17,7 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
   end
 
   def test_input_microbit_magnetometer
-    assert_xyz_results(@hummingbird.microbit_magnetometer)
+    assert assert_xyz_results(@hummingbird.microbit_magnetometer)
   end
 
   def test_input_microbit_shaking
@@ -26,6 +26,13 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
 
   def test_input_microbit_orientation
     assert BirdbrainMicrobitInput::ORIENTATION_RESULTS.include?(@hummingbird.microbit_orientation)
+
+    assert assert_true_or_false(@hummingbird.microbit_orientation_screen_up?)
+    assert assert_true_or_false(@hummingbird.microbit_orientation_screen_down?)
+    assert assert_true_or_false(@hummingbird.microbit_orientation_tilt_left?)
+    assert assert_true_or_false(@hummingbird.microbit_orientation_tilt_right?)
+    assert assert_true_or_false(@hummingbird.microbit_orientation_logo_up?)
+    assert assert_true_or_false(@hummingbird.microbit_orientation_logo_down?)
   end
 
   def assert_xyz_results(xyz)
@@ -34,5 +41,12 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
     assert xyz[0].is_a?(Float)
     assert xyz[1].is_a?(Float)
     assert xyz[2].is_a?(Float)
+  end
+
+  def assert_true_or_false(value)
+    return true if value.is_a?(TrueClass)
+    return true if value.is_a?(FalseClass)
+
+    false
   end
 end

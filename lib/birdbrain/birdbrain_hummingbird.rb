@@ -48,6 +48,30 @@ class BirdbrainHummingbird
     BirdbrainMicrobitInput.microbit_orientation(device) if connected?
   end
 
+  def microbit_orientation_screen_up?
+    BirdbrainMicrobitInput.microbit_orientation_screen_up?(device) if connected?
+  end
+
+  def microbit_orientation_screen_down?
+    BirdbrainMicrobitInput.microbit_orientation_screen_down?(device) if connected?
+  end
+
+  def microbit_orientation_tilt_left?
+    BirdbrainMicrobitInput.microbit_orientation_tilt_left?(device) if connected?
+  end
+
+  def microbit_orientation_tilt_right?
+    BirdbrainMicrobitInput.microbit_orientation_tilt_right?(device) if connected?
+  end
+
+  def microbit_orientation_logo_up?
+    BirdbrainMicrobitInput.microbit_orientation_logo_up?(device) if connected?
+  end
+
+  def microbit_orientation_logo_down?
+    BirdbrainMicrobitInput.microbit_orientation_logo_down?(device) if connected?
+  end
+
   def microbit_display(led_list)
     BirdbrainMicrobitOutput.microbit_display(state, device, led_list) if connected?
   end
