@@ -14,7 +14,7 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
     assert_xyz_results(xyz)
   end
 
-  def test_input_microbit_microbit_shaking
+  def test_input_microbit_shaking
     assert_equal(@hummingbird.microbit_shaking?, false)
   end
 
