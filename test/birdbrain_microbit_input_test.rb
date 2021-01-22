@@ -24,6 +24,10 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
     assert_equal(@hummingbird.microbit_shaking?, false)
   end
 
+  def test_input_microbit_orientation
+    assert BirdbrainMicrobitInput::ORIENTATION_RESULTS.include?(@hummingbird.microbit_orientation)
+  end
+
   def assert_xyz_results(xyz)
     assert xyz.is_a?(Array)
     assert xyz.size == 3

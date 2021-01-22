@@ -8,6 +8,8 @@ Style/TernaryParentheses:
   Enabled: false
 Style/NumericPredicate:
   Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
 Metrics/CyclomaticComplexity:
   Max: 12
 Metrics/PerceivedComplexity:
