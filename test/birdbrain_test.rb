@@ -9,11 +9,7 @@ class BirdbrainTest < BirdbrainTestSetup
   end
 
   def test_connection
-    hummingbird = BirdbrainHummingbird.new
-
-    assert hummingbird.device == BirdbrainHummingbird::DEFAULT_DEVICE
-    assert hummingbird.connected?
-
-    assert true
+    assert @hummingbird.device == BirdbrainHummingbird::DEFAULT_DEVICE
+    assert @hummingbird.connected?
   end
 end
