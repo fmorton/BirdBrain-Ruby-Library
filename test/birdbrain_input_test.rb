@@ -5,7 +5,7 @@ require 'birdbrain_test_setup'
 
 class BirdbrainInputTest < BirdbrainTestSetup
   def test_input_hummingbird?
-    assert @hummingbird.hummingbird?
+    assert_true_or_false @hummingbird.hummingbird?
   end
 
   def test_input_light
@@ -26,9 +26,5 @@ class BirdbrainInputTest < BirdbrainTestSetup
 
   def test_input_voltage
     assert @hummingbird.voltage(1)
-  end
-
-  def test_input_microbit_shaking
-    assert_equal(@hummingbird.microbit_shaking?, false)
   end
 end

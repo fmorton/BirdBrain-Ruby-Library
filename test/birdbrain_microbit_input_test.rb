@@ -5,7 +5,7 @@ require 'birdbrain_test_setup'
 
 class BirdbrainMicrobitInputTest < BirdbrainTestSetup
   def test_input_microbit?
-    assert @hummingbird.microbit?
+    assert_true_or_false @hummingbird.microbit?
   end
 
   def test_input_microbit_accelerometer
@@ -25,7 +25,7 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
   end
 
   def test_input_microbit_shaking?
-    assert_equal(@hummingbird.microbit_shaking?, false)
+    assert_true_or_false(@hummingbird.microbit_shaking?, false)
   end
 
   def test_input_microbit_orientation

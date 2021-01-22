@@ -7,7 +7,9 @@ class BirdbrainRequest
   def self.uri(*args)
     uri = 'http://127.0.0.1:30061'
     args.flatten.each { |s| uri += "/#{s}" }
-    puts "TEST: uri is #{uri}"
+
+    # puts "Test: uri is #{uri}"
+
     uri
   end
 
@@ -41,7 +43,7 @@ class BirdbrainRequest
   end
 
   def self.request_status(status)
-    puts "TEST: returning status: #{status.inspect}"
+    # puts "Test: request status is #{status.inspect}"
 
     return nil if status.nil?
 
@@ -55,8 +57,6 @@ class BirdbrainRequest
     return true if status == 'all stopped'
 
     return false if status == 'false'
-
-    puts "DEBUG: UNKNOWN STATUS $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ #{status.inspect}"
 
     nil
   end
