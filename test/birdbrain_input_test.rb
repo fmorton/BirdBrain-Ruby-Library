@@ -8,24 +8,24 @@ class BirdbrainInputTest < BirdbrainTestSetup
     assert @hummingbird.hummingbird?
   end
 
-  def test_input_get_light
-    assert @hummingbird.get_light(1)
+  def test_input_light
+    assert @hummingbird.light(1)
   end
 
-  def test_input_get_sound
-    assert @hummingbird.get_sound(1)
+  def test_input_sound
+    assert @hummingbird.sound(1)
   end
 
-  def test_input_get_distance
-    assert @hummingbird.get_distance(1)
+  def test_input_distance
+    assert @hummingbird.distance(1)
   end
 
-  def test_input_get_dial
-    assert @hummingbird.get_dial(1)
+  def test_input_dial
+    assert @hummingbird.dial(1)
   end
 
-  def test_input_get_voltage
-    assert @hummingbird.get_voltage(1)
+  def test_input_voltage
+    assert @hummingbird.voltage(1)
   end
 
   def test_input_microbit_shaking

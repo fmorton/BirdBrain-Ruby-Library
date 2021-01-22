@@ -102,24 +102,24 @@ class BirdbrainHummingbird
     BirdbrainMicrobitOutput.microbit_print(device, message) if connected?
   end
 
-  def get_light(port)
-    BirdbrainInput.get_light(device, port) if connected?
+  def light(port)
+    BirdbrainInput.light(device, port) if connected?
   end
 
-  def get_sound(port)
-    BirdbrainInput.get_sound(device, port) if connected?
+  def sound(port)
+    BirdbrainInput.sound(device, port) if connected?
   end
 
-  def get_distance(port)
-    BirdbrainInput.get_distance(device, port) if connected?
+  def distance(port)
+    BirdbrainInput.distance(device, port) if connected?
   end
 
-  def get_dial(port)
-    BirdbrainInput.get_dial(device, port) if connected?
+  def dial(port)
+    BirdbrainInput.dial(device, port) if connected?
   end
 
-  def get_voltage(port)
-    BirdbrainInput.get_voltage(device, port) if connected?
+  def voltage(port)
+    BirdbrainInput.voltage(device, port) if connected?
   end
 
   def servo(port, angle)
