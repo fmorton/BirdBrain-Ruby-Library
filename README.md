@@ -10,8 +10,6 @@ Rdoc files are available at https://rdoc.info/github/fmorton/BirdBrain-Ruby-Libr
 
 ## Installation
 
-The library is available through https://rubygems.org/gems/birdbrain/
-
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -25,6 +23,8 @@ And then execute:
 Or install it yourself as:
 
     $ gem install birdbrain
+
+The library is distributed through https://rubygems.org/gems/birdbrain/
 
 ## Usage
 
