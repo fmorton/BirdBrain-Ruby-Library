@@ -13,7 +13,7 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
   end
 
   def test_input_microbit_compass
-    assert (@hummingbird.microbit_compass >= 0) && (@hummingbird.microbit_compass <= 359)
+    assert (@hummingbird.microbit_compass >= 0) && (@hummingbird.microbit_compass <= 360)
   end
 
   def test_input_microbit_magnetometer
@@ -25,7 +25,7 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
   end
 
   def test_input_microbit_shaking?
-    assert_true_or_false(@hummingbird.microbit_shaking?, false)
+    assert_true_or_false(@hummingbird.microbit_shaking?)
   end
 
   def test_input_microbit_orientation

@@ -3,16 +3,23 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 class BirdbrainHummingbird
   DEFAULT_DEVICE = 'A'
+  VALID_DEVICES = 'ABC'
+  VALID_BUTTONS = 'AB'
+  VALID_LED_PORTS = '123'
+  VALID_TRILED_PORTS = '12'
+  VALID_SENSOR_PORTS = '123'
+  VALID_SERVO_PORTS = '1234'
 
   attr_accessor :state
   attr_accessor :connected
   attr_accessor :device
 
   def initialize(device = DEFAULT_DEVICE)
+    raise(BirdbrainException, 'Missing device') if device.nil?
+    raise(BirdbrainException, "Invalid device: #{device}") unless VALID_DEVICES.include?(device)
+
     self.state = BirdbrainState.new
-
     self.device = device
-
     self.connected = BirdbrainRequest.connected?(device)
   end
 
@@ -51,7 +58,7 @@ class BirdbrainHummingbird
   end
 
   def microbit_button?(button)
-    BirdbrainMicrobitInput.microbit_button?(device, button) if connected?
+    BirdbrainMicrobitInput.microbit_button?(device, button) if connected_and_valid?(button, VALID_BUTTONS)
   end
 
   def microbit_shaking?
@@ -103,42 +110,52 @@ class BirdbrainHummingbird
   end
 
   def light(port)
-    BirdbrainInput.light(device, port) if connected?
+    BirdbrainInput.light(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def sound(port)
-    BirdbrainInput.sound(device, port) if connected?
+    BirdbrainInput.sound(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def distance(port)
-    BirdbrainInput.distance(device, port) if connected?
+    BirdbrainInput.distance(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def dial(port)
-    BirdbrainInput.dial(device, port) if connected?
+    BirdbrainInput.dial(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def voltage(port)
-    BirdbrainInput.voltage(device, port) if connected?
+    BirdbrainInput.voltage(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def servo(port, angle)
-    BirdbrainOutput.servo(device, port, angle) if connected?
+    BirdbrainOutput.servo(device, port, angle) if connected_and_valid?(port, VALID_SERVO_PORTS)
   end
 
   def rotation_servo(port, speed)
-    BirdbrainOutput.rotation_servo(device, port, speed) if connected?
+    BirdbrainOutput.rotation_servo(device, port, speed) if connected_and_valid?(port, VALID_SERVO_PORTS)
   end
 
   def led(port, intensity)
-    BirdbrainOutput.led(device, port, intensity) if connected?
+    BirdbrainOutput.led(device, port, intensity) if connected_and_valid?(port, VALID_LED_PORTS)
   end
 
   def tri_led(port, r_intensity, g_intensity, b_intensity)
-    BirdbrainOutput.tri_led(device, port, r_intensity, g_intensity, b_intensity) if connected?
+    BirdbrainOutput.tri_led(device, port, r_intensity, g_intensity, b_intensity) if connected_and_valid?(port, VALID_TRILED_PORTS)
   end
 
   def play_note(note, beats)
     BirdbrainOutput.play_note(device, note, beats) if connected?
+  end
+
+  def connected_and_valid?(validate, valid_range)
+    return true if !validate.nil? && valid_range.include?(validate.to_s) && connected?
+
+    calling_method = caller[0]
+
+    message = (calling_method == 'button') ? "Invalid button: #{validate}" : "Invalid #{calling_method} port: #{validate}"
+
+    raise(BirdbrainException, message)
   end
 end
