@@ -10,7 +10,7 @@ Rdoc files are available at https://rdoc.info/github/fmorton/BirdBrain-Ruby-Libr
 
 ## Installation
 
-Add this line to your application's Gemfile:
+The library is available through https://rubygems.org/gems/birdbrain/ . Add this line to your application's Gemfile:
 
 ```ruby
 gem 'birdbrain'
