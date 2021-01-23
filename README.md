@@ -6,6 +6,8 @@ This Ruby library allows students to use Ruby to read sensors and set motors and
 
 For more information about setting up the BlueBird Connector used with their Python library, see www.birdbraintechnologies.com/hummingbirdbit/python/
 
+Rdoc files are available at https://rdoc.info/github/fmorton/BirdBrain-Ruby-Library/
+
 ## Installation
 
 Add this line to your application's Gemfile:
