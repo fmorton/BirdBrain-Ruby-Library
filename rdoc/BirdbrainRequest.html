@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class BirdbrainRequest - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-bounds">::bounds</a>
+    
+    <li ><a href="#method-c-calculate_angle">::calculate_angle</a>
+    
+    <li ><a href="#method-c-calculate_intensity">::calculate_intensity</a>
+    
+    <li ><a href="#method-c-calculate_speed">::calculate_speed</a>
+    
+    <li ><a href="#method-c-connected-3F">::connected?</a>
+    
+    <li ><a href="#method-c-not_connected-3F">::not_connected?</a>
+    
+    <li ><a href="#method-c-request_status">::request_status</a>
+    
+    <li ><a href="#method-c-response">::response</a>
+    
+    <li ><a href="#method-c-response_body">::response_body</a>
+    
+    <li ><a href="#method-c-uri">::uri</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-BirdbrainRequest">
+  <h1 id="class-BirdbrainRequest" class="class">
+    class BirdbrainRequest
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-bounds" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bounds</span><span
+            class="method-args">(input, input_min, input_max, pass_through_input = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bounds-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">bounds</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">input_min</span>, <span class="ruby-identifier">input_max</span>, <span class="ruby-identifier">pass_through_input</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">input</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">pass_through_input</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">input</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">pass_through_input</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">input_min</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">input_min</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">input_max</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">input_max</span>
+
+  <span class="ruby-identifier">input</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-calculate_angle" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calculate_angle</span><span
+            class="method-args">(intensity)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="calculate_angle-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">calculate_angle</span>(<span class="ruby-identifier">intensity</span>)
+  <span class="ruby-identifier">intensity</span> <span class="ruby-operator">*</span> <span class="ruby-value">255</span> <span class="ruby-operator">/</span> <span class="ruby-value">180</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-calculate_intensity" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calculate_intensity</span><span
+            class="method-args">(intensity)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="calculate_intensity-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">calculate_intensity</span>(<span class="ruby-identifier">intensity</span>)
+  <span class="ruby-identifier">intensity</span> <span class="ruby-operator">*</span> <span class="ruby-value">255</span> <span class="ruby-operator">/</span> <span class="ruby-value">100</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-calculate_speed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calculate_speed</span><span
+            class="method-args">(speed)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="calculate_speed-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">calculate_speed</span>(<span class="ruby-identifier">speed</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-value">255</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">speed</span>.<span class="ruby-identifier">between?</span>(<span class="ruby-value">-10</span>, <span class="ruby-value">10</span>)
+
+  <span class="ruby-comment"># QUESTION: why this calculation instead of normal mapping to 0..255 (and 255 means stop)</span>
+  ((<span class="ruby-identifier">speed</span> <span class="ruby-operator">*</span> <span class="ruby-value">23</span> <span class="ruby-operator">/</span> <span class="ruby-value">100</span>) <span class="ruby-operator">+</span> <span class="ruby-value">122</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-connected-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">connected?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="connected-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">connected?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-string">&#39;orientation&#39;</span>, <span class="ruby-string">&#39;Shake&#39;</span>, <span class="ruby-identifier">device</span>)
+
+  <span class="ruby-operator">!</span><span class="ruby-identifier">response</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-not_connected-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">not_connected?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="not_connected-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">not_connected?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-operator">!</span><span class="ruby-identifier">connected?</span>(<span class="ruby-identifier">device</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-request_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">request_status</span><span
+            class="method-args">(status)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="request_status-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">request_status</span>(<span class="ruby-identifier">status</span>)
+  <span class="ruby-comment"># puts &quot;Test: request status is #{status.inspect}&quot;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;led set&#39;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;triled set&#39;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;servo set&#39;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;buzzer set&#39;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;symbol set&#39;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;print set&#39;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;all stopped&#39;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;false&#39;</span>
+
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">response</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">uri</span>(<span class="ruby-identifier">args</span>)))
+
+  <span class="ruby-identifier">sleep</span>(<span class="ruby-value">0.01</span>) <span class="ruby-comment"># HACK: prevent http requests from overloading the bluebird connector</span>
+
+  <span class="ruby-identifier">response</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNREFUSED</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-response_body" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response_body</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response_body-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">response_body</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">response</span>(<span class="ruby-identifier">args</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;not connected&#39;</span>
+
+  <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-uri" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uri</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uri-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_request.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">uri</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">uri</span> = <span class="ruby-string">&#39;http://127.0.0.1:30061&#39;</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">uri</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;/#{s}&quot;</span> }
+
+  <span class="ruby-comment"># puts &quot;Test: uri is #{uri}&quot;</span>
+
+  <span class="ruby-identifier">uri</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

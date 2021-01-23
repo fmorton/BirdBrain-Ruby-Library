@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class BirdbrainMicrobitInput - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="BirdbrainRequest.html">BirdbrainRequest</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-microbit-3F">::microbit?</a>
+    
+    <li ><a href="#method-c-microbit_accelerometer">::microbit_accelerometer</a>
+    
+    <li ><a href="#method-c-microbit_button-3F">::microbit_button?</a>
+    
+    <li ><a href="#method-c-microbit_compass">::microbit_compass</a>
+    
+    <li ><a href="#method-c-microbit_magnetometer">::microbit_magnetometer</a>
+    
+    <li ><a href="#method-c-microbit_orientation">::microbit_orientation</a>
+    
+    <li ><a href="#method-c-microbit_orientation_check">::microbit_orientation_check</a>
+    
+    <li ><a href="#method-c-microbit_orientation_logo_down-3F">::microbit_orientation_logo_down?</a>
+    
+    <li ><a href="#method-c-microbit_orientation_logo_up-3F">::microbit_orientation_logo_up?</a>
+    
+    <li ><a href="#method-c-microbit_orientation_screen_down-3F">::microbit_orientation_screen_down?</a>
+    
+    <li ><a href="#method-c-microbit_orientation_screen_up-3F">::microbit_orientation_screen_up?</a>
+    
+    <li ><a href="#method-c-microbit_orientation_tilt_left-3F">::microbit_orientation_tilt_left?</a>
+    
+    <li ><a href="#method-c-microbit_orientation_tilt_right-3F">::microbit_orientation_tilt_right?</a>
+    
+    <li ><a href="#method-c-microbit_shaking-3F">::microbit_shaking?</a>
+    
+    <li ><a href="#method-c-microbit_xyz_values">::microbit_xyz_values</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-BirdbrainMicrobitInput">
+  <h1 id="class-BirdbrainMicrobitInput" class="class">
+    class BirdbrainMicrobitInput
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ORIENTATIONS">ORIENTATIONS
+        
+        <dd>
+        
+      
+        <dt id="ORIENTATION_IN_BETWEEN">ORIENTATION_IN_BETWEEN
+        
+        <dd>
+        
+      
+        <dt id="ORIENTATION_RESULTS">ORIENTATION_RESULTS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-microbit-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">request_status</span>(<span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-string">&#39;isHummingbird&#39;</span>, <span class="ruby-string">&#39;static&#39;</span>, <span class="ruby-identifier">device</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_accelerometer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_accelerometer</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_accelerometer-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_accelerometer</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">microbit_xyz_values</span>(<span class="ruby-identifier">device</span>, <span class="ruby-string">&#39;Accelerometer&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_button-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_button?</span><span
+            class="method-args">(device, button)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_button-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_button?</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">button</span>)
+  <span class="ruby-identifier">request_status</span>(<span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-string">&#39;button&#39;</span>, <span class="ruby-identifier">button</span>, <span class="ruby-identifier">device</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_compass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_compass</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_compass-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_compass</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-string">&#39;Compass&#39;</span>, <span class="ruby-identifier">device</span>).<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_magnetometer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_magnetometer</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_magnetometer-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_magnetometer</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">microbit_xyz_values</span>(<span class="ruby-identifier">device</span>, <span class="ruby-string">&#39;Magnetometer&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_orientation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_orientation</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_orientation-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_orientation</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-constant">ORIENTATIONS</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">orientation</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">request_status</span>(<span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-string">&#39;orientation&#39;</span>, <span class="ruby-identifier">orientation</span>, <span class="ruby-identifier">device</span>))
+      <span class="ruby-keyword">return</span> <span class="ruby-constant">ORIENTATION_RESULTS</span>[<span class="ruby-identifier">index</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">ORIENTATION_IN_BETWEEN</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_orientation_check" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_orientation_check</span><span
+            class="method-args">(device, index)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_orientation_check-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_orientation_check</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">request_status</span>(<span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-string">&#39;orientation&#39;</span>, <span class="ruby-constant">ORIENTATIONS</span>[<span class="ruby-identifier">index</span>], <span class="ruby-identifier">device</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_orientation_logo_down-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_orientation_logo_down?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_orientation_logo_down-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_orientation_logo_down?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">microbit_orientation_check</span>(<span class="ruby-identifier">device</span>, <span class="ruby-value">5</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_orientation_logo_up-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_orientation_logo_up?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_orientation_logo_up-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_orientation_logo_up?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">microbit_orientation_check</span>(<span class="ruby-identifier">device</span>, <span class="ruby-value">4</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_orientation_screen_down-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_orientation_screen_down?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_orientation_screen_down-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_orientation_screen_down?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">microbit_orientation_check</span>(<span class="ruby-identifier">device</span>, <span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_orientation_screen_up-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_orientation_screen_up?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_orientation_screen_up-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_orientation_screen_up?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">microbit_orientation_check</span>(<span class="ruby-identifier">device</span>, <span class="ruby-value">0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_orientation_tilt_left-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_orientation_tilt_left?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_orientation_tilt_left-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_orientation_tilt_left?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">microbit_orientation_check</span>(<span class="ruby-identifier">device</span>, <span class="ruby-value">2</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_orientation_tilt_right-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_orientation_tilt_right?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_orientation_tilt_right-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_orientation_tilt_right?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">microbit_orientation_check</span>(<span class="ruby-identifier">device</span>, <span class="ruby-value">3</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_shaking-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_shaking?</span><span
+            class="method-args">(device)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_shaking-3F-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_shaking?</span>(<span class="ruby-identifier">device</span>)
+  <span class="ruby-identifier">request_status</span>(<span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-string">&#39;orientation&#39;</span>, <span class="ruby-string">&#39;Shake&#39;</span>, <span class="ruby-identifier">device</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-microbit_xyz_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">microbit_xyz_values</span><span
+            class="method-args">(device, sensor)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="microbit_xyz_values-source">
+            <pre><span class="ruby-comment"># File lib/birdbrain/birdbrain_microbit_input.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">microbit_xyz_values</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">sensor</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-identifier">sensor</span>, <span class="ruby-string">&#39;X&#39;</span>, <span class="ruby-identifier">device</span>).<span class="ruby-identifier">to_f</span>
+  <span class="ruby-identifier">y</span> = <span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-identifier">sensor</span>, <span class="ruby-string">&#39;Y&#39;</span>, <span class="ruby-identifier">device</span>).<span class="ruby-identifier">to_f</span>
+  <span class="ruby-identifier">z</span> = <span class="ruby-identifier">response_body</span>(<span class="ruby-string">&#39;hummingbird&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-identifier">sensor</span>, <span class="ruby-string">&#39;Z&#39;</span>, <span class="ruby-identifier">device</span>).<span class="ruby-identifier">to_f</span>
+
+  [<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-identifier">z</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
