@@ -15,7 +15,7 @@ class BirdbrainMicrobitInput < BirdbrainRequest
   end
 
   def self.microbit_compass(device)
-    response_body('hummingbird', 'in', 'Compass', device).to_i
+    (response = response_body('hummingbird', 'in', 'Compass', device)).nil? ? response : response.to_i
   end
 
   def self.microbit_magnetometer(device)
@@ -32,7 +32,10 @@ class BirdbrainMicrobitInput < BirdbrainRequest
 
   def self.microbit_orientation(device)
     ORIENTATIONS.each_with_index do |orientation, index|
-      if request_status(response_body('hummingbird', 'in', 'orientation', orientation, device))
+      return nil if (response = response_body('hummingbird', 'in', 'orientation', orientation, device)).nil?
+
+      # if request_status(response_body('hummingbird', 'in', 'orientation', orientation, device))
+      if request_status(response)
         return ORIENTATION_RESULTS[index]
       end
     end
@@ -69,10 +72,11 @@ class BirdbrainMicrobitInput < BirdbrainRequest
   end
 
   def self.microbit_xyz_values(device, sensor)
-    x = response_body('hummingbird', 'in', sensor, 'X', device).to_f
+    return nil if (x = response_body('hummingbird', 'in', sensor, 'X', device)).nil?
+
     y = response_body('hummingbird', 'in', sensor, 'Y', device).to_f
     z = response_body('hummingbird', 'in', sensor, 'Z', device).to_f
 
-    [x, y, z]
+    [x.to_f, y, z]
   end
 end

@@ -89,7 +89,7 @@ Style/ClassEqualityComparison: # (new in 0.93)
 Style/CombinableLoops: # (new in 0.90)
   Enabled: true
 Style/ExplicitBlockArgument: # (new in 0.89)
-  Enabled: true
+  Enabled: false
 Style/ExponentialNotation: # (new in 0.82)
   Enabled: true
 Style/GlobalStdStream: # (new in 0.89)
