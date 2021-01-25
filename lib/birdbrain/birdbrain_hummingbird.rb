@@ -15,12 +15,14 @@ class BirdbrainHummingbird
   attr_accessor :device
 
   def initialize(device = DEFAULT_DEVICE)
-    raise(BirdbrainException, 'Missing device') if device.nil?
-    raise(BirdbrainException, "Invalid device: #{device}") unless VALID_DEVICES.include?(device)
+    raise(BirdbrainException, 'Missing device name') if device.nil?
+    raise(BirdbrainException, "Invalid device name: #{device}") unless VALID_DEVICES.include?(device)
 
     self.state = BirdbrainState.new
     self.device = device
     self.connected = BirdbrainRequest.connected?(device)
+
+    raise BirdbrainException('No connection') unless connected?
   end
 
   def connected?
