@@ -1,19 +1,9 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-require 'birdbrain_minitest'
+require 'test_helper'
 
-class BirdbrainTestSetup < BirdbrainMinitest
-  def setup
-    @hummingbird = BirdbrainHummingbird.new
-  end
-
-  def after_teardown
-    @hummingbird.stop_all
-
-    super
-  end
-
+class BirdbrainMinitest < Minitest::Test
   def assert_xyz_results(xyz)
     assert xyz.is_a?(Array)
     assert xyz.size == 3
@@ -28,5 +18,13 @@ class BirdbrainTestSetup < BirdbrainMinitest
     else
       assert false
     end
+  end
+
+  def assert_exception
+    yield
+
+    assert false
+  rescue BirdbrainException => e
+    assert true, e.message
   end
 end

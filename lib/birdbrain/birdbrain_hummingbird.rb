@@ -22,7 +22,7 @@ class BirdbrainHummingbird
     self.device = device
     self.connected = BirdbrainRequest.connected?(device)
 
-    raise BirdbrainException('No connection') unless connected?
+    raise(BirdbrainException, 'No connection') unless connected?
   end
 
   def connected?
