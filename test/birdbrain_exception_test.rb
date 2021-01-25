@@ -48,7 +48,7 @@ class BirdbrainExceptionTest < BirdbrainMinitest
       assert_nil @hummingbird.distance(1)
       assert_nil @hummingbird.dial(1)
       assert_nil @hummingbird.voltage(1)
-      assert_nil @hummingbird.servo(1, 0)
+      assert_nil @hummingbird.position_servo(1, 0)
       assert_nil @hummingbird.rotation_servo(1, 0)
       assert_nil @hummingbird.led(1, 0)
       assert_nil @hummingbird.tri_led(1, 0, 0, 0)

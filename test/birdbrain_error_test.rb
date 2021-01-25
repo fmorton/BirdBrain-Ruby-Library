@@ -17,17 +17,17 @@ class BirdbrainErrorTest < BirdbrainMinitest
 
     assert_exception { hummingbird.led(nil, 0) }
     assert_exception { hummingbird.light(nil) }
-    assert_exception { hummingbird.servo(nil, 0) }
+    assert_exception { hummingbird.position_servo(nil, 0) }
     assert_exception { hummingbird.tri_led(nil, 0, 0, 0) }
 
     assert_exception { hummingbird.led(0, 0) }
     assert_exception { hummingbird.light(0) }
-    assert_exception { hummingbird.servo(0, 0) }
+    assert_exception { hummingbird.position_servo(0, 0) }
     assert_exception { hummingbird.tri_led(0, 0, 0, 0) }
 
     assert_exception { hummingbird.led(4, 0) }
     assert_exception { hummingbird.light(4) }
-    assert_exception { hummingbird.servo(5, 0) }
+    assert_exception { hummingbird.position_servo(5, 0) }
     assert_exception { hummingbird.tri_led(3, 0, 0, 0) }
   end
 end

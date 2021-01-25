@@ -131,8 +131,8 @@ class BirdbrainHummingbird
     BirdbrainInput.voltage(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
-  def servo(port, angle)
-    BirdbrainOutput.servo(device, port, angle) if connected_and_valid?(port, VALID_SERVO_PORTS)
+  def position_servo(port, angle)
+    BirdbrainOutput.position_servo(device, port, angle) if connected_and_valid?(port, VALID_SERVO_PORTS)
   end
 
   def rotation_servo(port, speed)

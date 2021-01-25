@@ -21,11 +21,11 @@ class BirdbrainOutputTest < BirdbrainTestSetup
   end
 
   def test_output_servo
-    assert @hummingbird.servo(1, 0)
+    assert @hummingbird.position_servo(1, 0)
     sleep(1)
-    assert @hummingbird.servo(1, 180)
+    assert @hummingbird.position_servo(1, 180)
     sleep(1)
-    assert @hummingbird.servo(1, 90)
+    assert @hummingbird.position_servo(1, 90)
   end
 
   def test_output_rotation_servo
