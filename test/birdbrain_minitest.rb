@@ -27,4 +27,14 @@ class BirdbrainMinitest < Minitest::Test
   rescue BirdbrainException => e
     assert true, e.message
   end
+
+  def assert_nil_response
+    BirdbrainRequest.stub(:response, nil) do
+      yield
+
+      assert false
+    rescue BirdbrainException
+      assert true
+    end
+  end
 end
