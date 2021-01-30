@@ -1,13 +1,13 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-class BirdbrainFinch < BirdbrainMicrobit
-  VALID_LED_PORTS = '123'
-  VALID_TRILED_PORTS = '12'
-  VALID_SENSOR_PORTS = '123'
-  VALID_SERVO_PORTS = '1234'
+require 'birdbrain_finch_test_setup'
 
-  def beak(r_intensity, g_intensity, b_intensity)
-    BirdbrainHummingbirdOutput.tri_led(device, 1, r_intensity, g_intensity, b_intensity) if connected?
+class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
+  def test_finch_output_beak
+    assert @finch.beak(0, 60, 70)
+    sleep(1)
+    assert @finch.beak(0, 0, 0)
+    sleep(1)
   end
 end
