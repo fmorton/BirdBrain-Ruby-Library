@@ -23,12 +23,12 @@ class BirdbrainExceptionTest < BirdbrainMinitest
       assert_nil @hummingbird.microbit_button?('A')
       assert_nil @hummingbird.microbit_shaking?
       assert_nil @hummingbird.microbit_orientation
-      assert_nil @hummingbird.microbit_orientation_screen_up?
-      assert_nil @hummingbird.microbit_orientation_screen_down?
-      assert_nil @hummingbird.microbit_orientation_tilt_left?
-      assert_nil @hummingbird.microbit_orientation_tilt_right?
-      assert_nil @hummingbird.microbit_orientation_logo_up?
-      assert_nil @hummingbird.microbit_orientation_logo_down?
+      assert_nil @hummingbird.orientation_screen_up?
+      assert_nil @hummingbird.orientation_screen_down?
+      assert_nil @hummingbird.orientation_tilt_left?
+      assert_nil @hummingbird.orientation_tilt_right?
+      assert_nil @hummingbird.orientation_logo_up?
+      assert_nil @hummingbird.orientation_logo_down?
       assert_nil @hummingbird.microbit_display([])
       assert_nil @hummingbird.microbit_clear_display
       assert_nil @hummingbird.microbit_point(1, 1, 1)

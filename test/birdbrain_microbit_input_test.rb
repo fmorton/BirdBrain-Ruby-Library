@@ -31,11 +31,11 @@ class BirdbrainMicrobitInputTest < BirdbrainTestSetup
   def test_input_microbit_orientation
     assert BirdbrainMicrobitInput::ORIENTATION_RESULTS.include?(@hummingbird.microbit_orientation)
 
-    assert_true_or_false(@hummingbird.microbit_orientation_screen_up?)
-    assert_true_or_false(@hummingbird.microbit_orientation_screen_down?)
-    assert_true_or_false(@hummingbird.microbit_orientation_tilt_left?)
-    assert_true_or_false(@hummingbird.microbit_orientation_tilt_right?)
-    assert_true_or_false(@hummingbird.microbit_orientation_logo_up?)
-    assert_true_or_false(@hummingbird.microbit_orientation_logo_down?)
+    assert_true_or_false(@hummingbird.orientation_screen_up?)
+    assert_true_or_false(@hummingbird.orientation_screen_down?)
+    assert_true_or_false(@hummingbird.orientation_tilt_left?)
+    assert_true_or_false(@hummingbird.orientation_tilt_right?)
+    assert_true_or_false(@hummingbird.orientation_logo_up?)
+    assert_true_or_false(@hummingbird.orientation_logo_down?)
   end
 end
