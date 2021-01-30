@@ -1,9 +1,9 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-require 'birdbrain_test_setup'
+require 'birdbrain_hummingbird_test_setup'
 
-class BirdbrainOutputTest < BirdbrainTestSetup
+class BirdbrainOutputTest < BirdbrainHummingbirdTestSetup
   def test_output_led
     assert @hummingbird.led(1, 100)
     sleep(1)

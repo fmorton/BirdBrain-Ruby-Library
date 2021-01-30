@@ -1,9 +1,9 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-require 'birdbrain_test_setup'
+require 'birdbrain_hummingbird_test_setup'
 
-class BirdbrainMicrobitOutputTest < BirdbrainTestSetup
+class BirdbrainMicrobitOutputTest < BirdbrainHummingbirdTestSetup
   def test_microbit_output_display
     led_list_numeric = [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
     led_list_boolean = [false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, true,

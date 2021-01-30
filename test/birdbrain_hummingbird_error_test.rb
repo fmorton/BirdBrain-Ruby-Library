@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 require 'birdbrain_minitest'
 
-class BirdbrainErrorTest < BirdbrainMinitest
+class BirdbrainHummingbirdErrorTest < BirdbrainMinitest
   def test_error_missing_device
     assert_exception { BirdbrainHummingbird.new(nil) }
   end

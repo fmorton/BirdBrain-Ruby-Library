@@ -1,9 +1,9 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-require 'birdbrain_test_setup'
+require 'birdbrain_hummingbird_test_setup'
 
-class BirdbrainMicrobitInputTest < BirdbrainTestSetup
+class BirdbrainMicrobitInputTest < BirdbrainHummingbirdTestSetup
   def test_microbit_input?
     assert_true_or_false @hummingbird.microbit?
   end

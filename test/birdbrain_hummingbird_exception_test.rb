@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 require 'birdbrain_minitest'
 
-class BirdbrainExceptionTest < BirdbrainMinitest
+class BirdbrainHummingbirdExceptionTest < BirdbrainMinitest
   def test_no_connection_no_connection_old
     stub_for_nil_response do
       assert_exception { @hummingbird = BirdbrainHummingbird.new }

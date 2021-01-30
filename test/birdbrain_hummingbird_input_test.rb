@@ -1,9 +1,9 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-require 'birdbrain_test_setup'
+require 'birdbrain_hummingbird_test_setup'
 
-class BirdbrainInputTest < BirdbrainTestSetup
+class BirdbrainInputTest < BirdbrainHummingbirdTestSetup
   def test_hummingbird_input?
     assert_true_or_false @hummingbird.hummingbird?
   end
