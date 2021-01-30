@@ -4,31 +4,31 @@
 require 'birdbrain_test_setup'
 
 class BirdbrainMicrobitInputTest < BirdbrainTestSetup
-  def test_input_microbit?
+  def test_microbit_input?
     assert_true_or_false @hummingbird.microbit?
   end
 
-  def test_input_microbit_accelerometer
+  def test_microbit_input_accelerometer
     assert_xyz_results(@hummingbird.microbit_accelerometer)
   end
 
-  def test_input_microbit_compass
+  def test_microbit_input_compass
     assert (@hummingbird.microbit_compass >= 0) && (@hummingbird.microbit_compass <= 360)
   end
 
-  def test_input_microbit_magnetometer
+  def test_microbit_input_magnetometer
     assert_xyz_results(@hummingbird.microbit_magnetometer)
   end
 
-  def test_input_microbit_button?
+  def test_microbit_input_button?
     assert_true_or_false(@hummingbird.microbit_button?('A'))
   end
 
-  def test_input_microbit_shaking?
+  def test_microbit_input_shaking?
     assert_true_or_false(@hummingbird.microbit_shaking?)
   end
 
-  def test_input_microbit_orientation
+  def test_microbit_input_orientation
     assert BirdbrainMicrobitInput::ORIENTATION_RESULTS.include?(@hummingbird.microbit_orientation)
 
     assert_true_or_false(@hummingbird.orientation_screen_up?)

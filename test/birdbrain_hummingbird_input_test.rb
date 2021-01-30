@@ -4,27 +4,27 @@
 require 'birdbrain_test_setup'
 
 class BirdbrainInputTest < BirdbrainTestSetup
-  def test_input_hummingbird?
+  def test_hummingbird_input?
     assert_true_or_false @hummingbird.hummingbird?
   end
 
-  def test_input_hummingbird_light
+  def test_hummingbird_input_light
     assert @hummingbird.light(1)
   end
 
-  def test_input_hummingbird_sound
+  def test_hummingbird_input_sound
     assert @hummingbird.sound(1)
   end
 
-  def test_input_hummingbird_distance
+  def test_hummingbird_input_distance
     assert @hummingbird.distance(1)
   end
 
-  def test_input_hummingbird_dial
+  def test_hummingbird_input_dial
     assert @hummingbird.dial(1)
   end
 
-  def test_input_hummingbird_voltage
+  def test_hummingbird_input_voltage
     assert @hummingbird.voltage(1)
   end
 end

@@ -10,7 +10,7 @@ class BirdbrainOutputTest < BirdbrainTestSetup
     assert @hummingbird.led(1, 0)
   end
 
-  def test_output_hummingbird_tri_led
+  def test_hummingbird_output_tri_led
     assert @hummingbird.tri_led(1, 0, 50, 100)
     sleep(1)
     assert @hummingbird.tri_led(1, 50, 100, 0)
@@ -20,7 +20,7 @@ class BirdbrainOutputTest < BirdbrainTestSetup
     assert @hummingbird.tri_led(1, 0, 0, 0)
   end
 
-  def test_output_hummingbird_servo
+  def test_hummingbird_output_servo
     assert @hummingbird.position_servo(1, 0)
     sleep(1)
     assert @hummingbird.position_servo(1, 180)
@@ -28,7 +28,7 @@ class BirdbrainOutputTest < BirdbrainTestSetup
     assert @hummingbird.position_servo(1, 90)
   end
 
-  def test_output_hummingbird_rotation_servo
+  def test_hummingbird_output_rotation_servo
     assert @hummingbird.rotation_servo(3, 100)
     sleep(1)
     assert @hummingbird.rotation_servo(3, 50)
@@ -41,7 +41,7 @@ class BirdbrainOutputTest < BirdbrainTestSetup
     sleep(1)
   end
 
-  def test_output_hummingbird_play_note
+  def test_hummingbird_output_play_note
     assert @hummingbird.play_note(32, 4)
     sleep(5)
     assert @hummingbird.play_note(65, 3)
