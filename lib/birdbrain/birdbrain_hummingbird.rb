@@ -8,43 +8,43 @@ class BirdbrainHummingbird < BirdbrainMicrobit
   VALID_SERVO_PORTS = '1234'
 
   def light(port)
-    BirdbrainInput.light(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
+    BirdbrainHummingbirdInput.light(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def sound(port)
-    BirdbrainInput.sound(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
+    BirdbrainHummingbirdInput.sound(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def distance(port)
-    BirdbrainInput.distance(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
+    BirdbrainHummingbirdInput.distance(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def dial(port)
-    BirdbrainInput.dial(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
+    BirdbrainHummingbirdInput.dial(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def voltage(port)
-    BirdbrainInput.voltage(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
+    BirdbrainHummingbirdInput.voltage(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end
 
   def position_servo(port, angle)
-    BirdbrainOutput.position_servo(device, port, angle) if connected_and_valid?(port, VALID_SERVO_PORTS)
+    BirdbrainHummingbirdOutput.position_servo(device, port, angle) if connected_and_valid?(port, VALID_SERVO_PORTS)
   end
 
   def rotation_servo(port, speed)
-    BirdbrainOutput.rotation_servo(device, port, speed) if connected_and_valid?(port, VALID_SERVO_PORTS)
+    BirdbrainHummingbirdOutput.rotation_servo(device, port, speed) if connected_and_valid?(port, VALID_SERVO_PORTS)
   end
 
   def led(port, intensity)
-    BirdbrainOutput.led(device, port, intensity) if connected_and_valid?(port, VALID_LED_PORTS)
+    BirdbrainHummingbirdOutput.led(device, port, intensity) if connected_and_valid?(port, VALID_LED_PORTS)
   end
 
   def tri_led(port, r_intensity, g_intensity, b_intensity)
-    BirdbrainOutput.tri_led(device, port, r_intensity, g_intensity, b_intensity) if connected_and_valid?(port, VALID_TRILED_PORTS)
+    BirdbrainHummingbirdOutput.tri_led(device, port, r_intensity, g_intensity, b_intensity) if connected_and_valid?(port, VALID_TRILED_PORTS)
   end
 
   def play_note(note, beats)
-    BirdbrainOutput.play_note(device, note, beats) if connected?
+    BirdbrainHummingbirdOutput.play_note(device, note, beats) if connected?
   end
 
   def orientation_screen_up?

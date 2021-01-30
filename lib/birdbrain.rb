@@ -11,9 +11,9 @@ module Birdbrain
   require_relative 'birdbrain/birdbrain_request'
   require_relative 'birdbrain/birdbrain_microbit_input'
   require_relative 'birdbrain/birdbrain_microbit_output'
-  require_relative 'birdbrain/birdbrain_input'
-  require_relative 'birdbrain/birdbrain_output'
   require_relative 'birdbrain/birdbrain_microbit'
+  require_relative 'birdbrain/birdbrain_hummingbird_input'
+  require_relative 'birdbrain/birdbrain_hummingbird_output'
   require_relative 'birdbrain/birdbrain_hummingbird'
   require_relative 'birdbrain/birdbrain_finch'
 end

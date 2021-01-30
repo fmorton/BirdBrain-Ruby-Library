@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 require 'birdbrain_hummingbird_test_setup'
 
-class BirdbrainOutputTest < BirdbrainHummingbirdTestSetup
+class BirdbrainHummingbirdOutputTest < BirdbrainHummingbirdTestSetup
   def test_output_led
     assert @hummingbird.led(1, 100)
     sleep(1)

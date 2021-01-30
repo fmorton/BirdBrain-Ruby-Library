@@ -25,7 +25,7 @@ class BirdbrainDevice
   end
 
   def stop_all
-    BirdbrainOutput.stop_all(device) if connected?
+    BirdbrainHummingbirdOutput.stop_all(device) if connected?
 
     state.microbit_display_map_clear unless state.nil?
 
@@ -39,7 +39,7 @@ class BirdbrainDevice
   end
 
   def hummingbird?
-    BirdbrainInput.hummingbird?(device) if connected?
+    BirdbrainHummingbirdInput.hummingbird?(device) if connected?
   end
 
   def connected_and_valid?(validate, valid_range)

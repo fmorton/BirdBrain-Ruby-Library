@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 require 'birdbrain_hummingbird_test_setup'
 
-class BirdbrainInputTest < BirdbrainHummingbirdTestSetup
+class BirdbrainHummingbirdInputTest < BirdbrainHummingbirdTestSetup
   def test_hummingbird_input?
     assert_true_or_false @hummingbird.hummingbird?
   end
