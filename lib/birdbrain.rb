@@ -16,4 +16,6 @@ module Birdbrain
   require_relative 'birdbrain/birdbrain_hummingbird_output'
   require_relative 'birdbrain/birdbrain_hummingbird'
   require_relative 'birdbrain/birdbrain_finch'
+  require_relative 'birdbrain/birdbrain_finch_input'
+  require_relative 'birdbrain/birdbrain_finch_output'
 end

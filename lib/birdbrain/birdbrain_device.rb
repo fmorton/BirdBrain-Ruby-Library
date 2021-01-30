@@ -42,6 +42,10 @@ class BirdbrainDevice
     BirdbrainHummingbirdInput.hummingbird?(device) if connected?
   end
 
+  def finch?
+    BirdbrainFinchInput.finch?(device) if connected?
+  end
+
   def connected_and_valid?(validate, valid_range)
     return true if !validate.nil? && valid_range.include?(validate.to_s) && connected?
 
