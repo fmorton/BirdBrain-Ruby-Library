@@ -20,4 +20,9 @@ class BirdbrainFinch < BirdbrainMicrobit
       end
     end
   end
+
+  # DEBUG: same code as hummingbird
+  def play_note(note, beats)
+    BirdbrainHummingbirdOutput.play_note(device, note, beats) if connected?
+  end
 end

@@ -30,4 +30,13 @@ class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
     assert @finch.tail('all', 0, 0, 0)
     sleep(1)
   end
+
+  def test_hummingbird_output_play_note
+    assert @finch.play_note(32, 4)
+    sleep(5)
+    assert @finch.play_note(65, 3)
+    sleep(5)
+    assert @finch.play_note(80, 2)
+    sleep(5)
+  end
 end
