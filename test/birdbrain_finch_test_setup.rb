@@ -9,7 +9,7 @@ class BirdbrainFinchTestSetup < BirdbrainMinitest
   end
 
   def after_teardown
-    @finch.stop_all
+    @finch.disconnect
 
     super
   end

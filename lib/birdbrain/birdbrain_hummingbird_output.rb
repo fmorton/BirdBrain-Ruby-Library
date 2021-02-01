@@ -31,7 +31,7 @@ class BirdbrainHummingbirdOutput < BirdbrainRequest
     request_status(response_body('hummingbird', 'out', 'playnote', calc_note, calc_beats, device))
   end
 
-  def self.stop_all(device)
+  def self.disconnect(device)
     request_status(response_body('hummingbird', 'out', 'stopall', device))
   end
 end

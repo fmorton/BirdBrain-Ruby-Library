@@ -9,7 +9,7 @@ class BirdbrainHummingbirdTestSetup < BirdbrainMinitest
   end
 
   def after_teardown
-    @hummingbird.stop_all
+    @hummingbird.disconnect
 
     super
   end
