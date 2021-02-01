@@ -2,10 +2,30 @@
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
 class BirdbrainFinch < BirdbrainMicrobit
+  DIRECTION_FORWARD = 'F'
+  DIRECTION_BACKWARD = 'B'
+  MOVE_START_WAIT_SECONDS = 0.15
+  MOVE_TIMEOUT_SECONDS = 60.0
   VALID_LED_PORTS = '123'
   VALID_TRILED_PORTS = '1234'
   VALID_SENSOR_PORTS = '123'
   VALID_SERVO_PORTS = '1234'
+  VALID_DIRECTION = 'FB'
+
+  attr_accessor :move_start_wait_seconds
+  attr_accessor :move_start_time
+  attr_accessor :move_timeout_seconds
+
+  def initialize
+    super
+    self.move_start_wait_seconds = MOVE_START_WAIT_SECONDS # seconds to allow finch to start moving
+    self.move_timeout_seconds = MOVE_TIMEOUT_SECONDS # maximum number of seconds to wait for finch moving
+    self.move_start_time # after move records how long it took the startup to complete for tuning
+  end
+
+  def moving?
+    BirdbrainFinchInput.moving?(device) if connected?
+  end
 
   def beak(r_intensity, g_intensity, b_intensity)
     BirdbrainHummingbirdOutput.tri_led(device, 1, r_intensity, g_intensity, b_intensity) if connected?
@@ -16,7 +36,9 @@ class BirdbrainFinch < BirdbrainMicrobit
       if port.to_s == 'all'
         (2..4).each { |i| BirdbrainHummingbirdOutput.tri_led(device, port, r_intensity, g_intensity, b_intensity) }
       else
-        BirdbrainHummingbirdOutput.tri_led(device, port + 1, r_intensity, g_intensity, b_intensity)if connected_and_valid?(port, VALID_TRILED_PORTS)
+        if connected_and_valid?(port, VALID_TRILED_PORTS)
+          BirdbrainHummingbirdOutput.tri_led(device, port + 1, r_intensity, g_intensity, b_intensity)
+        end
       end
     end
   end
@@ -24,5 +46,35 @@ class BirdbrainFinch < BirdbrainMicrobit
   # DEBUG: same code as hummingbird
   def play_note(note, beats)
     BirdbrainHummingbirdOutput.play_note(device, note, beats) if connected?
+  end
+
+  def wait_to_start_moving
+    start_time = Time.now
+
+    sleep(0.01) while !moving? && ((Time.now - start_time) < self.move_start_wait_seconds) # short wait for finch to start moving
+
+    self.move_start_time = Time.now - start_time # close to amount of time it took the finch to startup for tuning
+
+    true
+  end
+
+  def wait
+    start_time = Time.now
+
+    sleep(0.01) while moving? && ((Time.now - start_time) < self.move_timeout_seconds)
+
+    true
+  end
+
+  def move(direction, distance, speed, wait_to_finish_moving = true)
+    if connected_and_valid?(direction, VALID_DIRECTION)
+      return false if !BirdbrainFinchOutput.move(device, direction, distance, speed)
+
+      if wait_to_finish_moving
+        wait_to_start_moving
+        wait
+      end
+    end
+    true
   end
 end

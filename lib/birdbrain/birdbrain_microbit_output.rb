@@ -21,8 +21,8 @@ class BirdbrainMicrobitOutput < BirdbrainRequest
   end
 
   def self.microbit_print(device, message)
-    calculated_message = message.gsub(' ', '%20')
+    calc_message = message.gsub(' ', '%20')
 
-    request_status(response_body('hummingbird', 'out', 'print', calculated_message, device))
+    request_status(response_body('hummingbird', 'out', 'print', calc_message, device))
   end
 end

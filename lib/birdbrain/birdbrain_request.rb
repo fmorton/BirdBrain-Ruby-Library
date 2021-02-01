@@ -56,6 +56,8 @@ class BirdbrainRequest
     return true if status == 'print set'
     return true if status == 'all stopped'
 
+    return true if status == 'finch moved'
+
     return false if status == 'false'
 
     nil

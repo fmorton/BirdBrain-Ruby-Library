@@ -7,4 +7,8 @@ class BirdbrainHummingbirdInputTest < BirdbrainFinchTestSetup
   def test_hummingbird_input?
     assert_true_or_false @finch.finch?
   end
+
+  def test_hummingbird_input?
+    assert !@finch.moving?
+  end
 end

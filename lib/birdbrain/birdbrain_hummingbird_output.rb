@@ -7,11 +7,11 @@ class BirdbrainHummingbirdOutput < BirdbrainRequest
   end
 
   def self.tri_led(device, port, r_intensity, g_intensity, b_intensity)
-    calculated_r = bounds(calculate_intensity(r_intensity), 0, 255)
-    calculated_g = bounds(calculate_intensity(g_intensity), 0, 255)
-    calculated_b = bounds(calculate_intensity(b_intensity), 0, 255)
+    calc_r = bounds(calculate_intensity(r_intensity), 0, 255)
+    calc_g = bounds(calculate_intensity(g_intensity), 0, 255)
+    calc_b = bounds(calculate_intensity(b_intensity), 0, 255)
 
-    request_status(response_body('hummingbird', 'out', 'triled', port.to_s, calculated_r, calculated_g, calculated_b, device))
+    request_status(response_body('hummingbird', 'out', 'triled', port.to_s, calc_r, calc_g, calc_b, device))
   end
 
   def self.position_servo(device, port, angle)
@@ -25,10 +25,10 @@ class BirdbrainHummingbirdOutput < BirdbrainRequest
   end
 
   def self.play_note(device, note, beats)
-    calculated_note = bounds(note, 32, 135)
-    calculated_beats = bounds(beats, 0, 16) * 1000  # 100=(60000 / TEMPO) where TEMPO=60
+    calc_note = bounds(note, 32, 135)
+    calc_beats = bounds(beats, 0, 16) * 1000  # 100=(60000 / TEMPO) where TEMPO=60
 
-    request_status(response_body('hummingbird', 'out', 'playnote', calculated_note, calculated_beats, device))
+    request_status(response_body('hummingbird', 'out', 'playnote', calc_note, calc_beats, device))
   end
 
   def self.stop_all(device)
