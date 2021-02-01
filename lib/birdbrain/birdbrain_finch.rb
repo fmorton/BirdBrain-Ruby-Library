@@ -102,4 +102,8 @@ class BirdbrainFinch < BirdbrainMicrobit
   def stop
     BirdbrainFinchOutput.stop(device) if connected?
   end
+
+  def reset_encoders
+    BirdbrainFinchOutput.reset_encoders(device) if connected?
+  end
 end

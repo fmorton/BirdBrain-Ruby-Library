@@ -90,4 +90,8 @@ class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
     sleep(5)
     assert @finch.stop
   end
+
+  def test_finch_output_reset_encoders
+    assert @finch.reset_encoders
+  end
 end

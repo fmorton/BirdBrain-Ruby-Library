@@ -41,4 +41,8 @@ class BirdbrainFinchOutput < BirdbrainRequest
   def self.stop(device)
     request_status(response_body('hummingbird', 'out', 'stopFinch', device))
   end
+
+  def self.reset_encoders(device)
+    request_status(response_body('hummingbird', 'out', 'resetEncoders', device))
+  end
 end
