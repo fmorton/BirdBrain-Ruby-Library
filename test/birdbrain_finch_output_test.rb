@@ -84,4 +84,10 @@ class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
     assert @finch.turn(BirdbrainFinch::LEFT, 180, 50, false)
     sleep(3)
   end
+
+  def test_finch_output_motors
+    assert @finch.motors(10, -10, 25)
+    sleep(5)
+    assert @finch.stop
+  end
 end

@@ -46,7 +46,6 @@ class BirdbrainFinch < BirdbrainMicrobit
     end
   end
 
-  # DEBUG: same code as hummingbird
   def play_note(note, beats)
     BirdbrainHummingbirdOutput.play_note(device, note, beats) if connected?
   end
@@ -94,5 +93,13 @@ class BirdbrainFinch < BirdbrainMicrobit
     end
 
     true
+  end
+
+  def motors(left_speed, right_speed, wait_to_finish_movement = true)
+    BirdbrainFinchOutput.motors(device, left_speed, right_speed)  if connected?
+  end
+
+  def stop
+    BirdbrainFinchOutput.stop(device) if connected?
   end
 end
