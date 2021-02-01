@@ -46,27 +46,42 @@ class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
   end
 
   def test_finch_output_move
-    assert @finch.move(BirdbrainFinch::DIRECTION_FORWARD, 10, 50)
+    assert @finch.move(BirdbrainFinch::FORWARD, 10, 50)
     sleep(1)
-    assert @finch.move(BirdbrainFinch::DIRECTION_BACKWARD, 10, 50)
-    sleep(1)
-
-    assert @finch.move(BirdbrainFinch::DIRECTION_FORWARD, 1, 50)
-    sleep(1)
-    assert @finch.move(BirdbrainFinch::DIRECTION_BACKWARD, 1, 50)
+    assert @finch.move(BirdbrainFinch::BACKWARD, 10, 50)
     sleep(1)
 
-    assert @finch.move(BirdbrainFinch::DIRECTION_FORWARD, 0.25, 50)
+    assert @finch.move(BirdbrainFinch::FORWARD, 1, 50)
     sleep(1)
-    assert @finch.move(BirdbrainFinch::DIRECTION_BACKWARD, 0.25, 50)
+    assert @finch.move(BirdbrainFinch::BACKWARD, 1, 50)
     sleep(1)
 
-    assert @finch.move(BirdbrainFinch::DIRECTION_FORWARD, 10, 50, false)
-    assert @finch.wait_to_start_moving
+    assert @finch.move(BirdbrainFinch::FORWARD, 0.25, 50)
+    sleep(1)
+    assert @finch.move(BirdbrainFinch::BACKWARD, 0.25, 50)
+    sleep(1)
+
+    assert @finch.move(BirdbrainFinch::FORWARD, 10, 50, false)
+    assert @finch.wait_until_movement
     assert @finch.moving?
     sleep(3)
     assert !@finch.moving?
-    assert @finch.move(BirdbrainFinch::DIRECTION_BACKWARD, 10, 50, false)
+    assert @finch.move(BirdbrainFinch::BACKWARD, 10, 50, false)
+    sleep(3)
+  end
+
+  def test_finch_output_turn
+    assert @finch.turn(BirdbrainFinch::LEFT, 180, 50)
+    sleep(1)
+    assert @finch.turn(BirdbrainFinch::RIGHT, 180, 50)
+    sleep(1)
+
+    assert @finch.turn(BirdbrainFinch::LEFT, 180, 50, false)
+    assert @finch.wait_until_movement
+    assert @finch.moving?
+    sleep(3)
+    assert !@finch.moving?
+    assert @finch.turn(BirdbrainFinch::LEFT, 180, 50, false)
     sleep(3)
   end
 end

@@ -57,6 +57,7 @@ class BirdbrainRequest
     return true if status == 'all stopped'
 
     return true if status == 'finch moved'
+    return true if status == 'finch turned'
 
     return false if status == 'false'
 

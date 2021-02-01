@@ -2,15 +2,18 @@
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
 class BirdbrainFinch < BirdbrainMicrobit
-  DIRECTION_FORWARD = 'F'
-  DIRECTION_BACKWARD = 'B'
+  FORWARD = 'F'
+  BACKWARD = 'B'
+  LEFT = 'L'
+  RIGHT = 'R'
   MOVE_START_WAIT_SECONDS = 0.15
   MOVE_TIMEOUT_SECONDS = 60.0
   VALID_LED_PORTS = '123'
   VALID_TRILED_PORTS = '1234'
   VALID_SENSOR_PORTS = '123'
   VALID_SERVO_PORTS = '1234'
-  VALID_DIRECTION = 'FB'
+  VALID_MOVE_DIRECTION = 'FB'
+  VALID_TURN_DIRECTION = 'LR'
 
   attr_accessor :move_start_wait_seconds
   attr_accessor :move_start_time
@@ -48,7 +51,7 @@ class BirdbrainFinch < BirdbrainMicrobit
     BirdbrainHummingbirdOutput.play_note(device, note, beats) if connected?
   end
 
-  def wait_to_start_moving
+  def wait_until_movement
     start_time = Time.now
 
     sleep(0.01) while !moving? && ((Time.now - start_time) < self.move_start_wait_seconds) # short wait for finch to start moving
@@ -66,15 +69,30 @@ class BirdbrainFinch < BirdbrainMicrobit
     true
   end
 
-  def move(direction, distance, speed, wait_to_finish_moving = true)
-    if connected_and_valid?(direction, VALID_DIRECTION)
+  def wait_until_movement_and_wait
+    wait_until_movement
+    wait
+
+    true
+  end
+
+  def move(direction, distance, speed, wait_to_finish_movement = true)
+    if connected_and_valid?(direction, VALID_MOVE_DIRECTION)
       return false if !BirdbrainFinchOutput.move(device, direction, distance, speed)
 
-      if wait_to_finish_moving
-        wait_to_start_moving
-        wait
-      end
+      wait_until_movement_and_wait if wait_to_finish_movement
     end
+
+    true
+  end
+
+  def turn(direction, angle, speed, wait_to_finish_movement = true)
+    if connected_and_valid?(direction, VALID_TURN_DIRECTION)
+      return false if !BirdbrainFinchOutput.turn(device, direction, angle, speed)
+
+      wait_until_movement_and_wait if wait_to_finish_movement
+    end
+
     true
   end
 end

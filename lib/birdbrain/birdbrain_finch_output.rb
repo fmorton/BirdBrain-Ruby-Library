@@ -14,11 +14,20 @@ class BirdbrainFinchOutput < BirdbrainRequest
 #    request_status(response_body('hummingbird', 'out', 'triled', port.to_s, calc_r, calc_g, calc_b, device))
 #  end
   def self.move(device, direction, distance, speed)
-    calc_direction = 'Forward' if direction == BirdbrainFinch::DIRECTION_FORWARD
-    calc_direction = 'Backward' if direction == BirdbrainFinch::DIRECTION_BACKWARD
+    calc_direction = 'Forward' if direction == BirdbrainFinch::FORWARD
+    calc_direction = 'Backward' if direction == BirdbrainFinch::BACKWARD
     calc_distance = bounds(distance, -10000, 10000)
     calc_speed = bounds(speed, 0, 100)
 
     request_status(response_body('hummingbird', 'out', 'move', device, calc_direction, calc_distance, calc_speed))
+  end
+
+  def self.turn(device, direction, angle, speed)
+    calc_direction = 'Left' if direction == BirdbrainFinch::LEFT
+    calc_direction = 'Right' if direction == BirdbrainFinch::RIGHT
+    calc_angle = bounds(angle, 0, 360)
+    calc_speed = bounds(speed, 0, 100)
+
+    request_status(response_body('hummingbird', 'out', 'turn', device, calc_direction, calc_angle, calc_speed))
   end
 end
