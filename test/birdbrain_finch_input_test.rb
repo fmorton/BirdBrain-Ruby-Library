@@ -22,4 +22,11 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
   def test_finch_distance
     assert @finch.distance >= 0
   end
+
+  def test_finch_line
+    assert @finch.line(BirdbrainFinch::LEFT) >= 0
+    assert @finch.line(BirdbrainFinch::LEFT) <= 100
+    assert @finch.line(BirdbrainFinch::RIGHT) >= 0
+    assert @finch.line(BirdbrainFinch::RIGHT) <= 100
+  end
 end

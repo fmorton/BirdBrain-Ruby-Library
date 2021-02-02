@@ -21,7 +21,14 @@ class BirdbrainFinchInput < BirdbrainRequest
     sensor(device, 'Distance', 'static', 0.0919, 1000000)
   end
 
-  def self.sensor(device, sensor, other = nil, factor = 1.0, max_response = 100)
+  def self.line(device, direction)
+    calc_direction = 'Left' if direction == BirdbrainFinch::LEFT
+    calc_direction = 'Right' if direction == BirdbrainFinch::RIGHT
+
+    sensor(device, 'Line', calc_direction)
+  end
+
+  def self.sensor(device, sensor, other = nil, factor = 1.0, max_response = 100, type_method = 'to_i')
     request = [ 'hummingbird', 'in', sensor ]
     request << other unless other.nil?
     request << device
@@ -30,6 +37,6 @@ class BirdbrainFinchInput < BirdbrainRequest
     response = response_body(request)
 
     puts "DEBUG: response ================================================================================ #{response.inspect}"
-    (response.nil? ? nil : bounds((response.to_f * factor).to_i, 0, max_response))
+    (response.nil? ? nil : bounds((response.to_f * factor).send(type_method), 0, max_response))
   end
 end
