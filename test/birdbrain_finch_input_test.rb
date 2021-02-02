@@ -18,4 +18,8 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
     assert @finch.light(BirdbrainFinch::RIGHT) >= 0
     assert @finch.light(BirdbrainFinch::RIGHT) <= 100
   end
+
+  def test_finch_distance
+    assert @finch.distance >= 0
+  end
 end

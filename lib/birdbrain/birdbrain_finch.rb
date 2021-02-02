@@ -31,7 +31,11 @@ class BirdbrainFinch < BirdbrainMicrobit
   end
 
   def light(direction)
-    BirdbrainFinchInput.light(device, direction).to_i if connected?
+    BirdbrainFinchInput.light(device, direction) if connected?
+  end
+
+  def distance
+    BirdbrainFinchInput.distance(device) if connected?
   end
 
   def beak(r_intensity, g_intensity, b_intensity)
