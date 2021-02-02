@@ -19,7 +19,7 @@ class BirdbrainFinch < BirdbrainMicrobit
   attr_accessor :move_start_time
   attr_accessor :move_timeout_seconds
 
-  def initialize
+  def initialize(device = DEFAULT_DEVICE)
     super
     self.move_start_wait_seconds = MOVE_START_WAIT_SECONDS # seconds to allow finch to start moving
     self.move_timeout_seconds = MOVE_TIMEOUT_SECONDS # maximum number of seconds to wait for finch moving

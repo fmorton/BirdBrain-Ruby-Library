@@ -63,8 +63,18 @@ class BirdbrainRequest
     return true if status == 'finch encoders reset'
 
     return false if status == 'false'
+    return false if status == 'Not Connected'
 
     nil
+  end
+
+  def self.xyz_response(device, sensor, type_method = 'to_f')
+    return nil if (x = response_body('hummingbird', 'in', sensor, 'X', device)).nil?
+
+    y = response_body('hummingbird', 'in', sensor, 'Y', device)
+    z = response_body('hummingbird', 'in', sensor, 'Z', device)
+
+    [x.send(type_method), y.send(type_method), z.send(type_method)]
   end
 
   def self.calculate_angle(intensity)

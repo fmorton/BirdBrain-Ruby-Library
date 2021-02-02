@@ -13,7 +13,7 @@ class BirdbrainFinchErrorTest < BirdbrainMinitest
   end
 
   def test_error_invalid_port_number
-    finch = BirdbrainFinch.new
+    finch = BirdbrainFinch.new(BirdbrainTest::FINCH_TEST_DEVICE)
 
     assert_exception { finch.tail(nil, 0, 0, 0) }
 

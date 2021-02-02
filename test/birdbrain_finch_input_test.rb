@@ -40,4 +40,8 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
     assert @finch.encoder(BirdbrainFinch::RIGHT).is_a?(Float)
     assert @finch.stop
   end
+
+  def test_finch_accelerometer
+    assert !@finch.microbit_accelerometer # turned off
+  end
 end

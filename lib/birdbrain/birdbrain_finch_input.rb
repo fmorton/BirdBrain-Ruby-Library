@@ -5,7 +5,7 @@ class BirdbrainFinchInput < BirdbrainRequest
   DEFAULT_FACTOR = 1.0
   DEFAULT_MIN_RESPONSE = 0
   DEFAULT_MAX_RESPONSE = 100
-  DEFAULT_METHOD_TYPE = 'to_i'
+  DEFAULT_TYPE_METHOD = 'to_i'
   DEFAULT_UNLIMITED_MIN_RESPONSE = -1000000
   DEFAULT_UNLIMITED_MAX_RESPONSE = 1000000
 
@@ -42,7 +42,7 @@ class BirdbrainFinchInput < BirdbrainRequest
     sensor(device, 'Encoder', calc_direction, DEFAULT_FACTOR, DEFAULT_UNLIMITED_MIN_RESPONSE, DEFAULT_UNLIMITED_MAX_RESPONSE, 'to_f')
   end
 
-  def self.sensor(device, sensor, other = nil, factor = DEFAULT_FACTOR, min_response = DEFAULT_MIN_RESPONSE, max_response = DEFAULT_MAX_RESPONSE, type_method = DEFAULT_METHOD_TYPE)
+  def self.sensor(device, sensor, other = nil, factor = DEFAULT_FACTOR, min_response = DEFAULT_MIN_RESPONSE, max_response = DEFAULT_MAX_RESPONSE, type_method = DEFAULT_TYPE_METHOD)
     request = [ 'hummingbird', 'in', sensor ]
     request << other unless other.nil?
     request << device
