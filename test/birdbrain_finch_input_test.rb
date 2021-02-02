@@ -58,4 +58,15 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
 
     assert_xyz_results(@finch.magnetometer)
   end
+
+  def test_microbit_input_orientation
+    assert BirdbrainFinchInput::ORIENTATION_RESULTS.include?(@finch.orientation)
+
+    assert_true_or_false(@finch.orientation_beak_up?)
+    assert_true_or_false(@finch.orientation_beak_down?)
+    assert_true_or_false(@finch.orientation_tilt_left?)
+    assert_true_or_false(@finch.orientation_tilt_right?)
+    assert_true_or_false(@finch.orientation_level?)
+    assert_true_or_false(@finch.orientation_upside_down?)
+  end
 end

@@ -8,6 +8,9 @@ class BirdbrainFinchInput < BirdbrainRequest
   DEFAULT_TYPE_METHOD = 'to_i'
   DEFAULT_UNLIMITED_MIN_RESPONSE = -1000000
   DEFAULT_UNLIMITED_MAX_RESPONSE = 1000000
+  ORIENTATIONS = ['Beak%20Up', 'Beak%20Down', 'Tilt%20Left', 'Tilt%20Right', 'Level', 'Upside%20Down']
+  ORIENTATION_RESULTS = ['Beak up', 'Beak down', 'Tilt left', 'Tilt right', 'Level', 'Upside down']
+  ORIENTATION_IN_BETWEEN = 'In between'
 
   def self.finch?(device)
     request_status(response_body('hummingbird', 'in', 'isHummingbird', 'static', device))
@@ -62,6 +65,44 @@ class BirdbrainFinchInput < BirdbrainRequest
 
   def self.magnetometer(device)
     xyz_response(device, 'finchMag')
+  end
+
+  def self.orientation(device)
+    ORIENTATIONS.each_with_index do |orientation, index|
+      return nil if (response = response_body('hummingbird', 'in', 'finchOrientation', orientation, device)).nil?
+
+      return ORIENTATION_RESULTS[index] if request_status(response)
+    end
+
+    ORIENTATION_IN_BETWEEN
+  end
+
+  def self.orientation_beak_up?(device)
+    orientation_check(device, 0)
+  end
+
+  def self.orientation_beak_down?(device)
+    orientation_check(device, 1)
+  end
+
+  def self.orientation_tilt_left?(device)
+    orientation_check(device, 2)
+  end
+
+  def self.orientation_tilt_right?(device)
+    orientation_check(device, 3)
+  end
+
+  def self.orientation_level?(device)
+    orientation_check(device, 4)
+  end
+
+  def self.orientation_upside_down?(device)
+    orientation_check(device, 5)
+  end
+
+  def self.orientation_check(device, index)
+    request_status(response_body('hummingbird', 'in', 'finchOrientation', ORIENTATIONS[index], device))
   end
 
   def self.sensor(device, sensor, other = nil, options = {})

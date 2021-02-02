@@ -34,10 +34,7 @@ class BirdbrainMicrobitInput < BirdbrainRequest
     ORIENTATIONS.each_with_index do |orientation, index|
       return nil if (response = response_body('hummingbird', 'in', 'orientation', orientation, device)).nil?
 
-      # if request_status(response_body('hummingbird', 'in', 'orientation', orientation, device))
-      if request_status(response)
-        return ORIENTATION_RESULTS[index]
-      end
+      return ORIENTATION_RESULTS[index] if request_status(response)
     end
 
     ORIENTATION_IN_BETWEEN

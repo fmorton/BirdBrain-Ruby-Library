@@ -58,6 +58,34 @@ class BirdbrainFinch < BirdbrainMicrobit
     BirdbrainFinchInput.magnetometer(device) if connected?
   end
 
+  def orientation
+    BirdbrainFinchInput.orientation(device) if connected?
+  end
+
+  def orientation_beak_up?
+    BirdbrainFinchInput.orientation_beak_up?(device) if connected?
+  end
+
+  def orientation_beak_down?
+    BirdbrainFinchInput.orientation_beak_down?(device) if connected?
+  end
+
+  def orientation_tilt_left?
+    BirdbrainFinchInput.orientation_tilt_left?(device) if connected?
+  end
+
+  def orientation_tilt_right?
+    BirdbrainFinchInput.orientation_tilt_right?(device) if connected?
+  end
+
+  def orientation_level?
+    BirdbrainFinchInput.orientation_level?(device) if connected?
+  end
+
+  def orientation_upside_down?
+    BirdbrainFinchInput.orientation_upside_down?(device) if connected?
+  end
+
   def beak(r_intensity, g_intensity, b_intensity)
     BirdbrainHummingbirdOutput.tri_led(device, 1, r_intensity, g_intensity, b_intensity) if connected?
   end

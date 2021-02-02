@@ -66,6 +66,7 @@ class BirdbrainRequest
 
     return false if status == 'false'
     return false if status == 'Not Connected'
+    return false if status == 'Invalid orientation'
 
     nil
   end
