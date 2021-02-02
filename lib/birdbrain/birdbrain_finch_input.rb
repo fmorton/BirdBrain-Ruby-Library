@@ -43,7 +43,7 @@ class BirdbrainFinchInput < BirdbrainRequest
   end
 
   def self.sensor(device, sensor, other = nil, factor = DEFAULT_FACTOR, min_response = DEFAULT_MIN_RESPONSE, max_response = DEFAULT_MAX_RESPONSE, type_method = DEFAULT_TYPE_METHOD)
-    request = [ 'hummingbird', 'in', sensor ]
+    request = ['hummingbird', 'in', sensor]
     request << other unless other.nil?
     request << device
 

@@ -86,7 +86,7 @@ class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
   end
 
   def test_finch_output_motors
-    assert @finch.motors(10, -10, 25)
+    assert @finch.motors(10, -10)
     sleep(5)
     assert @finch.stop
   end

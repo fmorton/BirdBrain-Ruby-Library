@@ -54,7 +54,7 @@ class BirdbrainFinch < BirdbrainMicrobit
   def tail(port, r_intensity, g_intensity, b_intensity)
     if connected?
       if port.to_s == 'all'
-        (2..4).each { |i| BirdbrainHummingbirdOutput.tri_led(device, port, r_intensity, g_intensity, b_intensity) }
+        (2..5).each { |port| BirdbrainHummingbirdOutput.tri_led(device, port, r_intensity, g_intensity, b_intensity) }
       else
         if connected_and_valid?(port, VALID_TRILED_PORTS)
           BirdbrainHummingbirdOutput.tri_led(device, port + 1, r_intensity, g_intensity, b_intensity)
@@ -70,7 +70,7 @@ class BirdbrainFinch < BirdbrainMicrobit
   def wait_until_movement
     start_time = Time.now
 
-    sleep(0.01) while !moving? && ((Time.now - start_time) < self.move_start_wait_seconds) # short wait for finch to start moving
+    sleep(0.01) while !moving? && ((Time.now - start_time) < move_start_wait_seconds) # short wait for finch to start moving
 
     self.move_start_time = Time.now - start_time # close to amount of time it took the finch to startup for tuning
 
@@ -80,7 +80,7 @@ class BirdbrainFinch < BirdbrainMicrobit
   def wait
     start_time = Time.now
 
-    sleep(0.01) while moving? && ((Time.now - start_time) < self.move_timeout_seconds)
+    sleep(0.01) while moving? && ((Time.now - start_time) < move_timeout_seconds)
 
     true
   end
@@ -94,7 +94,7 @@ class BirdbrainFinch < BirdbrainMicrobit
 
   def move(direction, distance, speed, wait_to_finish_movement = true)
     if connected_and_valid?(direction, VALID_MOVE_DIRECTION)
-      return false if !BirdbrainFinchOutput.move(device, direction, distance, speed)
+      return false unless BirdbrainFinchOutput.move(device, direction, distance, speed)
 
       wait_until_movement_and_wait if wait_to_finish_movement
     end
@@ -104,7 +104,7 @@ class BirdbrainFinch < BirdbrainMicrobit
 
   def turn(direction, angle, speed, wait_to_finish_movement = true)
     if connected_and_valid?(direction, VALID_TURN_DIRECTION)
-      return false if !BirdbrainFinchOutput.turn(device, direction, angle, speed)
+      return false unless BirdbrainFinchOutput.turn(device, direction, angle, speed)
 
       wait_until_movement_and_wait if wait_to_finish_movement
     end
@@ -112,7 +112,7 @@ class BirdbrainFinch < BirdbrainMicrobit
     true
   end
 
-  def motors(left_speed, right_speed, wait_to_finish_movement = true)
+  def motors(left_speed, right_speed)
     BirdbrainFinchOutput.motors(device, left_speed, right_speed)  if connected?
   end
 
