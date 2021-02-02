@@ -52,6 +52,10 @@ class BirdbrainFinchInput < BirdbrainRequest
     sensor(device, 'Encoder', calc_direction, encoder_options)
   end
 
+  def self.accelerometer(device)
+    xyz_response(device, 'finchAccel')
+  end
+
   def self.sensor(device, sensor, other = nil, options = {})
     factor = options.key?(:factor) ? options[:factor] : DEFAULT_FACTOR
     min_response = options.key?(:min_response) ? options[:min_response] : DEFAULT_MIN_RESPONSE

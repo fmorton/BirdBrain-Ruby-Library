@@ -42,6 +42,8 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
   end
 
   def test_finch_accelerometer
-    assert !@finch.microbit_accelerometer # turned off
+    assert !@finch.microbit_accelerometer # turned off on microbit
+
+    assert_xyz_results(@finch.accelerometer)
   end
 end
