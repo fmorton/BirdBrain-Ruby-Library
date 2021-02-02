@@ -35,7 +35,7 @@ class BirdbrainFinchOutput < BirdbrainRequest
     calc_left_speed = bounds(left_speed, -100, 100)
     calc_right_speed = bounds(right_speed, -100, 100)
 
-    request_status(response_body('hummingbird', 'out', 'wheels', device, left_speed, calc_right_speed))
+    request_status(response_body('hummingbird', 'out', 'wheels', device, calc_left_speed, calc_right_speed))
   end
 
   def self.stop(device)
