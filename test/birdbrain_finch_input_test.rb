@@ -29,4 +29,15 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
     assert @finch.line(BirdbrainFinch::RIGHT) >= 0
     assert @finch.line(BirdbrainFinch::RIGHT) <= 100
   end
+
+  def test_finch_encoder
+    assert @finch.encoder(BirdbrainFinch::LEFT).is_a?(Float)
+    assert @finch.encoder(BirdbrainFinch::RIGHT).is_a?(Float)
+
+    assert @finch.motors(20, -20)
+    sleep(2)
+    assert @finch.encoder(BirdbrainFinch::LEFT).is_a?(Float)
+    assert @finch.encoder(BirdbrainFinch::RIGHT).is_a?(Float)
+    assert @finch.stop
+  end
 end

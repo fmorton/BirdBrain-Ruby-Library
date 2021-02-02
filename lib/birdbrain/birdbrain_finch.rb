@@ -42,6 +42,10 @@ class BirdbrainFinch < BirdbrainMicrobit
     BirdbrainFinchInput.line(device, direction) if connected?
   end
 
+  def encoder(direction)
+    BirdbrainFinchInput.encoder(device, direction) if connected?
+  end
+
 
   def beak(r_intensity, g_intensity, b_intensity)
     BirdbrainHummingbirdOutput.tri_led(device, 1, r_intensity, g_intensity, b_intensity) if connected?
