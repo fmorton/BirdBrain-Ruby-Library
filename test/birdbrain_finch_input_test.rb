@@ -52,4 +52,10 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
 
     assert (@finch.compass >= 0) && (@finch.compass <= 360)
   end
+
+  def test_finch_magnetometer
+    assert !@finch.microbit_magnetometer # turned off on microbit
+
+    assert_xyz_results(@finch.magnetometer)
+  end
 end

@@ -29,6 +29,8 @@ class BirdbrainRequest
     return nil if response.nil?
     return nil if response.body.downcase == 'not connected'
 
+    puts "Test: response: #{response.body.inspect}"
+
     response.body
   end
 

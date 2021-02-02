@@ -60,6 +60,10 @@ class BirdbrainFinchInput < BirdbrainRequest
     (response = response_body('hummingbird', 'in', 'finchCompass', 'static', device)).nil? ? response : response.to_i
   end
 
+  def self.magnetometer(device)
+    xyz_response(device, 'finchMag')
+  end
+
   def self.sensor(device, sensor, other = nil, options = {})
     factor = options.key?(:factor) ? options[:factor] : DEFAULT_FACTOR
     min_response = options.key?(:min_response) ? options[:min_response] : DEFAULT_MIN_RESPONSE
