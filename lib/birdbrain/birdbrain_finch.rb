@@ -4,8 +4,8 @@
 class BirdbrainFinch < BirdbrainMicrobit
   FORWARD = 'F'
   BACKWARD = 'B'
-  LEFT = 'L'
-  RIGHT = 'R'
+  LEFT = BirdbrainDevice::LEFT
+  RIGHT = BirdbrainDevice::RIGHT
   MOVE_START_WAIT_SECONDS = 0.15
   MOVE_TIMEOUT_SECONDS = 60.0
   VALID_LED_PORTS = '123'

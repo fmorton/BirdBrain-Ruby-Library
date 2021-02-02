@@ -95,6 +95,13 @@ class BirdbrainRequest
     ((speed * 23 / 100) + 122)
   end
 
+  def self.calculate_left_or_right(direction)
+    return 'Left' if direction == BirdbrainDevice::LEFT
+    return 'Right' if direction == BirdbrainDevice::RIGHT
+
+    raise(BirdbrainException, 'Direction must be left or right')
+  end
+
   def self.bounds(input, input_min, input_max, pass_through_input = nil)
     return input if !pass_through_input.nil? && (input == pass_through_input)
 

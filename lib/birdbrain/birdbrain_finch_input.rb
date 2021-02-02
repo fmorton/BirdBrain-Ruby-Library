@@ -21,10 +21,7 @@ class BirdbrainFinchInput < BirdbrainRequest
   end
 
   def self.light(device, direction)
-    calc_direction = 'Left' if direction == BirdbrainFinch::LEFT
-    calc_direction = 'Right' if direction == BirdbrainFinch::RIGHT
-
-    sensor(device, 'Light', calc_direction)
+    sensor(device, 'Light', calculate_left_or_right(direction))
   end
 
   def self.distance(device)
@@ -37,10 +34,7 @@ class BirdbrainFinchInput < BirdbrainRequest
   end
 
   def self.line(device, direction)
-    calc_direction = 'Left' if direction == BirdbrainFinch::LEFT
-    calc_direction = 'Right' if direction == BirdbrainFinch::RIGHT
-
-    sensor(device, 'Line', calc_direction)
+    sensor(device, 'Line', calculate_left_or_right(direction))
   end
 
   def self.encoder(device, direction)
@@ -49,10 +43,7 @@ class BirdbrainFinchInput < BirdbrainRequest
     encoder_options[:max_response] = DEFAULT_UNLIMITED_MAX_RESPONSE
     encoder_options[:type_method] = 'to_f'
 
-    calc_direction = 'Left' if direction == BirdbrainFinch::LEFT
-    calc_direction = 'Right' if direction == BirdbrainFinch::RIGHT
-
-    sensor(device, 'Encoder', calc_direction, encoder_options)
+    sensor(device, 'Encoder', calculate_left_or_right(direction), encoder_options)
   end
 
   def self.accelerometer(device)

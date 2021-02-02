@@ -2,6 +2,8 @@
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
 class BirdbrainHummingbird < BirdbrainMicrobit
+  LEFT = BirdbrainDevice::LEFT
+  RIGHT = BirdbrainDevice::RIGHT
   VALID_LED_PORTS = '123'
   VALID_TRILED_PORTS = '12'
   VALID_SENSOR_PORTS = '123'

@@ -3,6 +3,8 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 class BirdbrainDevice
   DEFAULT_DEVICE = 'A'
+  LEFT = 'L'
+  RIGHT = 'R'
   VALID_DEVICES = 'ABC'
 
   attr_accessor :state
