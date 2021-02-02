@@ -50,6 +50,10 @@ class BirdbrainFinch < BirdbrainMicrobit
     BirdbrainFinchInput.accelerometer(device) if connected?
   end
 
+  def compass
+    BirdbrainFinchInput.compass(device) if connected?
+  end
+
   def beak(r_intensity, g_intensity, b_intensity)
     BirdbrainHummingbirdOutput.tri_led(device, 1, r_intensity, g_intensity, b_intensity) if connected?
   end

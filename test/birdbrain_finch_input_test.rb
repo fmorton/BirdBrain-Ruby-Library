@@ -46,4 +46,10 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
 
     assert_xyz_results(@finch.accelerometer)
   end
+
+  def test_finch_compass
+    assert !@finch.microbit_compass # turned off on microbit
+
+    assert (@finch.compass >= 0) && (@finch.compass <= 360)
+  end
 end
