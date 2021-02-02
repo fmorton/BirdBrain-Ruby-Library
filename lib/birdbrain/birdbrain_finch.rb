@@ -23,7 +23,7 @@ class BirdbrainFinch < BirdbrainMicrobit
     super
     self.move_start_wait_seconds = MOVE_START_WAIT_SECONDS # seconds to allow finch to start moving
     self.move_timeout_seconds = MOVE_TIMEOUT_SECONDS # maximum number of seconds to wait for finch moving
-    self.move_start_time # after move records how long it took the startup to complete for tuning
+    self.move_start_time = 0 # after move records how long it took the startup to complete for tuning
   end
 
   def moving?
@@ -46,20 +46,17 @@ class BirdbrainFinch < BirdbrainMicrobit
     BirdbrainFinchInput.encoder(device, direction) if connected?
   end
 
-
   def beak(r_intensity, g_intensity, b_intensity)
     BirdbrainHummingbirdOutput.tri_led(device, 1, r_intensity, g_intensity, b_intensity) if connected?
   end
 
   def tail(port, r_intensity, g_intensity, b_intensity)
-    if connected?
-      if port.to_s == 'all'
-        (2..5).each { |port| BirdbrainHummingbirdOutput.tri_led(device, port, r_intensity, g_intensity, b_intensity) }
-      else
-        if connected_and_valid?(port, VALID_TRILED_PORTS)
-          BirdbrainHummingbirdOutput.tri_led(device, port + 1, r_intensity, g_intensity, b_intensity)
-        end
-      end
+    return false unless connected?
+
+    if port.to_s == 'all'
+      (2..5).each { |all_port| BirdbrainHummingbirdOutput.tri_led(device, all_port, r_intensity, g_intensity, b_intensity) }
+    elsif connected_and_valid?(port, VALID_TRILED_PORTS)
+      BirdbrainHummingbirdOutput.tri_led(device, port + 1, r_intensity, g_intensity, b_intensity)
     end
   end
 
@@ -113,7 +110,7 @@ class BirdbrainFinch < BirdbrainMicrobit
   end
 
   def motors(left_speed, right_speed)
-    BirdbrainFinchOutput.motors(device, left_speed, right_speed)  if connected?
+    BirdbrainFinchOutput.motors(device, left_speed, right_speed) if connected?
   end
 
   def stop
