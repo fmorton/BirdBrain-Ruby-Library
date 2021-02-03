@@ -2,9 +2,9 @@
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
 class BirdbrainMicrobitInput < BirdbrainRequest
-  ORIENTATIONS = ['Screen%20Up', 'Screen%20Down', 'Tilt%20Left', 'Tilt%20Right', 'Logo%20Up', 'Logo%20Down']
-  ORIENTATION_RESULTS = ['Screen up', 'Screen down', 'Tilt left', 'Tilt right', 'Logo up', 'Logo down']
-  ORIENTATION_IN_BETWEEN = 'In between'
+  MICROBIT_ORIENTATIONS = ['Screen%20Up', 'Screen%20Down', 'Tilt%20Left', 'Tilt%20Right', 'Logo%20Up', 'Logo%20Down']
+  MICROBIT_ORIENTATION_RESULTS = ['Screen up', 'Screen down', 'Tilt left', 'Tilt right', 'Logo up', 'Logo down', 'In between']
+  MICROBIT_ORIENTATION_IN_BETWEEN = 'In between'
 
   def self.microbit?(device)
     request_status(response_body('hummingbird', 'in', 'isHummingbird', 'static', device))
@@ -31,40 +31,40 @@ class BirdbrainMicrobitInput < BirdbrainRequest
   end
 
   def self.microbit_orientation(device)
-    ORIENTATIONS.each_with_index do |orientation, index|
+    MICROBIT_ORIENTATIONS.each_with_index do |orientation, index|
       return nil if (response = response_body('hummingbird', 'in', 'orientation', orientation, device)).nil?
 
-      return ORIENTATION_RESULTS[index] if request_status(response)
+      return MICROBIT_ORIENTATION_RESULTS[index] if request_status(response)
     end
 
-    ORIENTATION_IN_BETWEEN
+    MICROBIT_ORIENTATION_IN_BETWEEN
   end
 
-  def self.orientation_screen_up?(device)
+  def self.microbit_orientation_screen_up?(device)
     orientation_check(device, 0)
   end
 
-  def self.orientation_screen_down?(device)
+  def self.microbit_orientation_screen_down?(device)
     orientation_check(device, 1)
   end
 
-  def self.orientation_tilt_left?(device)
+  def self.microbit_orientation_tilt_left?(device)
     orientation_check(device, 2)
   end
 
-  def self.orientation_tilt_right?(device)
+  def self.microbit_orientation_tilt_right?(device)
     orientation_check(device, 3)
   end
 
-  def self.orientation_logo_up?(device)
+  def self.microbit_orientation_logo_up?(device)
     orientation_check(device, 4)
   end
 
-  def self.orientation_logo_down?(device)
+  def self.microbit_orientation_logo_down?(device)
     orientation_check(device, 5)
   end
 
-  def self.orientation_check(device, index)
-    request_status(response_body('hummingbird', 'in', 'orientation', ORIENTATIONS[index], device))
+  private_class_method def self.orientation_check(device, index)
+    request_status(response_body('hummingbird', 'in', 'orientation', MICROBIT_ORIENTATIONS[index], device))
   end
 end

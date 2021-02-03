@@ -4,7 +4,7 @@
 require 'birdbrain_hummingbird_test_setup'
 
 class BirdbrainHummingbirdOutputTest < BirdbrainHummingbirdTestSetup
-  def test_output_led
+  def test_hummingbird_output_led
     assert @hummingbird.led(1, 100)
     sleep(1)
     assert @hummingbird.led(1, 0)

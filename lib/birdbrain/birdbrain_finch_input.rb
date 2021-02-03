@@ -9,7 +9,7 @@ class BirdbrainFinchInput < BirdbrainRequest
   DEFAULT_UNLIMITED_MIN_RESPONSE = -1000000
   DEFAULT_UNLIMITED_MAX_RESPONSE = 1000000
   ORIENTATIONS = ['Beak%20Up', 'Beak%20Down', 'Tilt%20Left', 'Tilt%20Right', 'Level', 'Upside%20Down']
-  ORIENTATION_RESULTS = ['Beak up', 'Beak down', 'Tilt left', 'Tilt right', 'Level', 'Upside down']
+  ORIENTATION_RESULTS = ['Beak up', 'Beak down', 'Tilt left', 'Tilt right', 'Level', 'Upside down', 'In between']
   ORIENTATION_IN_BETWEEN = 'In between'
 
   def self.finch?(device)
@@ -92,11 +92,11 @@ class BirdbrainFinchInput < BirdbrainRequest
     orientation_check(device, 5)
   end
 
-  def self.orientation_check(device, index)
+  private_class_method def self.orientation_check(device, index)
     request_status(response_body('hummingbird', 'in', 'finchOrientation', ORIENTATIONS[index], device))
   end
 
-  def self.sensor(device, sensor, other = nil, options = {})
+  private_class_method def self.sensor(device, sensor, other = nil, options = {})
     return false if other == false # for invalid directions
 
     factor = options.key?(:factor) ? options[:factor] : DEFAULT_FACTOR

@@ -4,7 +4,7 @@
 require 'birdbrain_hummingbird_test_setup'
 
 class BirdbrainHummingbirdTest < BirdbrainHummingbirdTestSetup
-  def test_connection
+  def test_hummingbird_connection
     assert @hummingbird.device == BirdbrainHummingbird::DEFAULT_DEVICE
     assert @hummingbird.connected?
   end

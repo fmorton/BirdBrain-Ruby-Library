@@ -48,28 +48,4 @@ class BirdbrainHummingbird < BirdbrainMicrobit
   def play_note(note, beats)
     BirdbrainHummingbirdOutput.play_note(device, note, beats) if connected?
   end
-
-  def orientation_screen_up?
-    BirdbrainMicrobitInput.orientation_screen_up?(device) if connected?
-  end
-
-  def orientation_screen_down?
-    BirdbrainMicrobitInput.orientation_screen_down?(device) if connected?
-  end
-
-  def orientation_tilt_left?
-    BirdbrainMicrobitInput.orientation_tilt_left?(device) if connected?
-  end
-
-  def orientation_tilt_right?
-    BirdbrainMicrobitInput.orientation_tilt_right?(device) if connected?
-  end
-
-  def orientation_logo_up?
-    BirdbrainMicrobitInput.orientation_logo_up?(device) if connected?
-  end
-
-  def orientation_logo_down?
-    BirdbrainMicrobitInput.orientation_logo_down?(device) if connected?
-  end
 end

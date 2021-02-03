@@ -26,7 +26,7 @@ class BirdbrainHummingbirdInput < BirdbrainRequest
     sensor(device, port, 0.012941176470588235) # factor=3.3/255
   end
 
-  def self.sensor(device, port, factor)
+  private_class_method def self.sensor(device, port, factor)
     response = response_body('hummingbird', 'in', 'sensor', port, device)
 
     (response.nil? ? nil : bounds((response.to_f * factor).to_i, 0, 100))

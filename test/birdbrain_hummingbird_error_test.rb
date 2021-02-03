@@ -4,7 +4,7 @@
 require 'birdbrain_minitest'
 
 class BirdbrainHummingbirdErrorTest < BirdbrainMinitest
-  def test_error_invalid_port_number
+  def test_hummingbird_error_invalid_port_number
     hummingbird = BirdbrainHummingbird.new
 
     assert !hummingbird.led(nil, 0)

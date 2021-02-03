@@ -12,25 +12,25 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
     assert !@finch.moving?
   end
 
-  def test_finch_light
+  def test_finch_input_light
     assert @finch.light(BirdbrainFinch::LEFT) >= 0
     assert @finch.light(BirdbrainFinch::LEFT) <= 100
     assert @finch.light(BirdbrainFinch::RIGHT) >= 0
     assert @finch.light(BirdbrainFinch::RIGHT) <= 100
   end
 
-  def test_finch_distance
+  def test_finch_input_distance
     assert @finch.distance >= 0
   end
 
-  def test_finch_line
+  def test_finch_input_line
     assert @finch.line(BirdbrainFinch::LEFT) >= 0
     assert @finch.line(BirdbrainFinch::LEFT) <= 100
     assert @finch.line(BirdbrainFinch::RIGHT) >= 0
     assert @finch.line(BirdbrainFinch::RIGHT) <= 100
   end
 
-  def test_finch_encoder
+  def test_finch_input_encoder
     assert @finch.encoder(BirdbrainFinch::LEFT).is_a?(Float)
     assert @finch.encoder(BirdbrainFinch::RIGHT).is_a?(Float)
 
@@ -41,25 +41,25 @@ class BirdbrainFinchInputTest < BirdbrainFinchTestSetup
     assert @finch.stop
   end
 
-  def test_finch_accelerometer
+  def test_finch_input_accelerometer
     assert !@finch.microbit_accelerometer # turned off on microbit
 
     assert_xyz_results(@finch.accelerometer)
   end
 
-  def test_finch_compass
+  def test_finch_input_compass
     assert !@finch.microbit_compass # turned off on microbit
 
     assert (@finch.compass >= 0) && (@finch.compass <= 360)
   end
 
-  def test_finch_magnetometer
+  def test_finch_input_magnetometer
     assert !@finch.microbit_magnetometer # turned off on microbit
 
     assert_xyz_results(@finch.magnetometer)
   end
 
-  def test_microbit_input_orientation
+  def test_finch_input_orientation
     assert BirdbrainFinchInput::ORIENTATION_RESULTS.include?(@finch.orientation)
 
     assert_true_or_false(@finch.orientation_beak_up?)
