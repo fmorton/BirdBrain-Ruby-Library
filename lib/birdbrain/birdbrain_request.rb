@@ -44,6 +44,10 @@ class BirdbrainRequest
     !connected?(device)
   end
 
+  def self.disconnect(device)
+    request_status(response_body('hummingbird', 'out', 'stopall', device))
+  end
+
   def self.request_status(status)
     # puts "Test: request status is #{status.inspect}"
 

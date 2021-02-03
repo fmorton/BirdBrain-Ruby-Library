@@ -27,7 +27,7 @@ class BirdbrainDevice
   end
 
   def disconnect
-    BirdbrainHummingbirdOutput.disconnect(device) if connected?
+    BirdbrainRequest.disconnect(device) if connected?
 
     state.microbit_display_map_clear unless state.nil?
 
