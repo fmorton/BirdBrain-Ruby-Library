@@ -9,6 +9,7 @@ class BirdbrainFinch < BirdbrainMicrobit
   MOVE_START_WAIT_SECONDS = 0.15
   MOVE_TIMEOUT_SECONDS = 60.0
   VALID_LED_PORTS = '123'
+  VALID_TAIL_PORTS = '1234all'
   VALID_TRILED_PORTS = '1234'
   VALID_SENSOR_PORTS = '123'
   VALID_SERVO_PORTS = '1234'
@@ -91,11 +92,11 @@ class BirdbrainFinch < BirdbrainMicrobit
   end
 
   def tail(port, r_intensity, g_intensity, b_intensity)
-    return false unless connected?
+    return unless connected_and_valid?(port, VALID_TAIL_PORTS)
 
     if port.to_s == 'all'
-      (2..5).each { |all_port| BirdbrainHummingbirdOutput.tri_led(device, all_port, r_intensity, g_intensity, b_intensity) }
-    elsif connected_and_valid?(port, VALID_TRILED_PORTS)
+      (2..5).each { |each_port| BirdbrainHummingbirdOutput.tri_led(device, each_port, r_intensity, g_intensity, b_intensity) }
+    else
       BirdbrainHummingbirdOutput.tri_led(device, port + 1, r_intensity, g_intensity, b_intensity)
     end
   end
