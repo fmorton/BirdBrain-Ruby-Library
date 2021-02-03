@@ -55,12 +55,6 @@ class BirdbrainDevice
   end
 
   def connected_and_valid?(validate, valid_range)
-    return true if valid?(validate, valid_range) && connected?
-
-    calling_method = caller[0]
-
-    message = (calling_method == 'button') ? "Invalid button: #{validate}" : "Invalid #{calling_method} port: #{validate}"
-
-    raise(BirdbrainException, message)
+    valid?(validate, valid_range) && connected?
   end
 end

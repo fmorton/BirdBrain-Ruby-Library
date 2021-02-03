@@ -4,17 +4,21 @@
 require 'net/http'
 
 class BirdbrainRequest
+  BIRDBRAIN_TEST = false
+
   def self.uri(*args)
     uri = 'http://127.0.0.1:30061'
     args.flatten.each { |s| uri += "/#{s}" }
 
-    # puts "Test: uri is #{uri}"
+    puts "Test: uri is #{uri}" if BIRDBRAIN_TEST
 
     uri
   end
 
   def self.response(*args)
-    response = Net::HTTP.get_response(URI.parse(uri(args)))
+    return false if (valid_args = args.flatten).include?(false)
+
+    response = Net::HTTP.get_response(URI.parse(uri(valid_args)))
 
     sleep(0.01) # HACK: prevent http requests from overloading the bluebird connector
 
@@ -26,10 +30,12 @@ class BirdbrainRequest
   def self.response_body(*args)
     response = response(args)
 
+    return false if response == false
+
     return nil if response.nil?
     return nil if response.body.downcase == 'not connected'
 
-    # puts "Test: response: #{response.body.inspect}"
+    puts "Test: response: #{response.body.inspect}" if BIRDBRAIN_TEST
 
     response.body
   end
@@ -49,7 +55,7 @@ class BirdbrainRequest
   end
 
   def self.request_status(status)
-    # puts "Test: request status is #{status.inspect}"
+    puts "Test: request status is #{status.inspect}" if BIRDBRAIN_TEST
 
     return nil if status.nil?
 
@@ -103,7 +109,7 @@ class BirdbrainRequest
     return 'Left' if direction == BirdbrainDevice::LEFT
     return 'Right' if direction == BirdbrainDevice::RIGHT
 
-    raise(BirdbrainException, 'Direction must be left or right')
+    false
   end
 
   def self.bounds(input, input_min, input_max, pass_through_input = nil)

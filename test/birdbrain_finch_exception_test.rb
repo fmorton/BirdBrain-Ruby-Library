@@ -4,6 +4,14 @@
 require 'birdbrain_test'
 
 class BirdbrainFinchExceptionTest < BirdbrainMinitest
+  def test_finch_exception_missing_device
+    assert_exception { !BirdbrainFinch.new(nil) }
+  end
+
+  def test_finch_exception_invalid_device
+    assert_exception { !BirdbrainFinch.new('D') }
+  end
+
   def test_finch_exception_no_connection
     stub_for_nil_response do
       assert_exception { @finch = BirdbrainFinch.new(BirdbrainTest::FINCH_TEST_DEVICE) }
@@ -44,18 +52,5 @@ class BirdbrainFinchExceptionTest < BirdbrainMinitest
       assert @finch.wait
       assert @finch.wait_until_movement_and_wait
     end
-  end
-
-  def test_error_invalid_parameter
-    finch = BirdbrainFinch.new(BirdbrainTest::FINCH_TEST_DEVICE)
-
-    assert_exception { finch.tail(nil, 0, 0, 0) }
-    assert_exception { finch.tail(0, 0, 0, 0) }
-    assert_exception { finch.tail(5, 0, 0, 0) }
-    assert_exception { finch.light('UNKNOWN') }
-    assert_exception { finch.line('UNKNOWN') }
-    assert_exception { finch.encoder('UNKNOWN') }
-    assert_exception { finch.move('UNKNOWN', 1, 1) }
-    assert_exception { finch.turn('UNKNOWN', 1, 1) }
   end
 end

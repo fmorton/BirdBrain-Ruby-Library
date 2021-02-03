@@ -97,6 +97,8 @@ class BirdbrainFinchInput < BirdbrainRequest
   end
 
   def self.sensor(device, sensor, other = nil, options = {})
+    return false if other == false # for invalid directions
+
     factor = options.key?(:factor) ? options[:factor] : DEFAULT_FACTOR
     min_response = options.key?(:min_response) ? options[:min_response] : DEFAULT_MIN_RESPONSE
     max_response = options.key?(:max_response) ? options[:max_response] : DEFAULT_MAX_RESPONSE
