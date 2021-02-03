@@ -4,14 +4,14 @@
 require 'birdbrain_test'
 
 class BirdbrainHummingbirdExceptionTest < BirdbrainMinitest
-  def test_no_connection_no_connection_old
+  def test_hummingbird_excepton_no_connection
     stub_for_nil_response do
       assert_exception { @hummingbird = BirdbrainHummingbird.new(BirdbrainTest::HUMMINGBIRD_TEST_DEVICE) }
     end
   end
 
-  def test_exception_test_lost_connection_for_microbit
-    @hummingbird = BirdbrainHummingbird.new
+  def test_hummingbird_excepton_lost_connection_for_microbit
+    @hummingbird = BirdbrainHummingbird.new(BirdbrainTest::HUMMINGBIRD_TEST_DEVICE)
 
     assert @hummingbird.connected?
 
@@ -36,7 +36,7 @@ class BirdbrainHummingbirdExceptionTest < BirdbrainMinitest
     end
   end
 
-  def test_exception_test_lost_connection_for_hummingbird
+  def test_hummingbird_excepton_lost_connection_for_hummingbird
     @hummingbird = BirdbrainHummingbird.new
 
     assert @hummingbird.connected?

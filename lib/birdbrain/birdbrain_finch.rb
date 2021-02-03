@@ -131,7 +131,9 @@ class BirdbrainFinch < BirdbrainMicrobit
 
   def move(direction, distance, speed, wait_to_finish_movement = true)
     if connected_and_valid?(direction, VALID_MOVE_DIRECTION)
-      return false unless BirdbrainFinchOutput.move(device, direction, distance, speed)
+      unless (response = BirdbrainFinchOutput.move(device, direction, distance, speed))
+        return response
+      end
 
       wait_until_movement_and_wait if wait_to_finish_movement
     end
@@ -141,7 +143,9 @@ class BirdbrainFinch < BirdbrainMicrobit
 
   def turn(direction, angle, speed, wait_to_finish_movement = true)
     if connected_and_valid?(direction, VALID_TURN_DIRECTION)
-      return false unless BirdbrainFinchOutput.turn(device, direction, angle, speed)
+      unless (response = BirdbrainFinchOutput.turn(device, direction, angle, speed))
+        return response
+      end
 
       wait_until_movement_and_wait if wait_to_finish_movement
     end

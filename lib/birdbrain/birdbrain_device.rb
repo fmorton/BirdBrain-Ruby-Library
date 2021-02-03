@@ -48,8 +48,14 @@ class BirdbrainDevice
     BirdbrainFinchInput.finch?(device) if connected?
   end
 
+  def valid?(validate, valid_range)
+    return false if validate.nil?
+
+    valid_range.include?(validate.to_s)
+  end
+
   def connected_and_valid?(validate, valid_range)
-    return true if !validate.nil? && valid_range.include?(validate.to_s) && connected?
+    return true if valid?(validate, valid_range) && connected?
 
     calling_method = caller[0]
 
