@@ -5,7 +5,7 @@ require 'birdbrain_test'
 
 class BirdbrainHummingbirdTestSetup < BirdbrainMinitest
   def setup
-    @hummingbird = BirdbrainFinch.find_device
+    @hummingbird = BirdbrainHummingbird.find_device
     @hummingbird_connected = @hummingbird.connected?
   end
 

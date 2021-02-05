@@ -7,7 +7,6 @@ class BirdbrainHummingbirdTest < BirdbrainHummingbirdTestSetup
   def test_hummingbird_connection
     return unless @hummingbird_connected
 
-    assert @hummingbird.device == BirdbrainHummingbird::DEFAULT_DEVICE
     assert @hummingbird.connected?
   end
 end

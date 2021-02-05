@@ -4,10 +4,6 @@
 require 'birdbrain_finch_test_setup'
 
 class BirdbrainFinchErrorTest < BirdbrainFinchTestSetup
-  def test_finch_error_valid_connection
-    assert BirdbrainFinch.connect.connected? == @finch_connected
-  end
-
   def test_finch_error_invalid_parameter
     finch = BirdbrainFinch.new
 
@@ -22,7 +18,7 @@ class BirdbrainFinchErrorTest < BirdbrainFinchTestSetup
   end
 
   def test_finch_error_connection
-    assert BirdbrainFinch.connect.connected? == @finch_connected
+    assert BirdbrainFinch.find_device.connected? == @finch_connected
   end
 
   def test_finch_excepton_lost_connection

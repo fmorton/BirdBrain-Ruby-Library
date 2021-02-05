@@ -32,6 +32,8 @@ class BirdbrainDevice
 
   def connect
     self.connected = BirdbrainRequest.connected?(device)
+    self.connected = nil unless valid_device_type?
+    connected
   end
 
   def connected?
@@ -50,9 +52,9 @@ class BirdbrainDevice
 
   def self.find_device
     ('A'..'C').each do |device|
-      device = connect(device)
+      connected_device = connect(device)
 
-      return device if device.valid_device?
+      return connected_device if connected_device.valid_device_type?
     rescue BirdbrainException
       next
     end

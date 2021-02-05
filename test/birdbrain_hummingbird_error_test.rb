@@ -24,7 +24,7 @@ class BirdbrainHummingbirdErrorTest < BirdbrainHummingbirdTestSetup
   end
 
   def test_hummingbird_error_connection
-    assert BirdbrainHummingbird.connect.connected? == @hummingbird_connected
+    assert BirdbrainHummingbird.find_device.connected? == @hummingbird_connected
   end
 
   def test_hummingbird_error_lost_connection_for_hummingbird
