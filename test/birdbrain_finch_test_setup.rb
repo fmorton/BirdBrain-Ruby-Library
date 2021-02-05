@@ -5,15 +5,8 @@ require 'birdbrain_test'
 
 class BirdbrainFinchTestSetup < BirdbrainMinitest
   def setup
-    ('A'..'C').each do |device|
-      @finch = BirdbrainFinch.connect(device)
-
-      break if @finch.finch?
-    rescue BirdbrainException
-      next
-    end
-
-    @finch_connected = !@finch.nil? && @finch.connected?
+    @finch = BirdbrainFinch.find_device
+    @finch_connected = @finch.connected?
   end
 
   def after_teardown

@@ -4,6 +4,10 @@
 class BirdbrainMicrobit < BirdbrainDevice
   VALID_BUTTONS = 'AB'
 
+  def found_device?
+    microbit?
+  end
+
   def microbit_accelerometer
     BirdbrainMicrobitInput.microbit_accelerometer(device) if connected?
   end

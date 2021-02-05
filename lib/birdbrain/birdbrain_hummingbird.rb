@@ -9,6 +9,10 @@ class BirdbrainHummingbird < BirdbrainMicrobit
   VALID_SENSOR_PORTS = '123'
   VALID_SERVO_PORTS = '1234'
 
+  def found_device?
+    hummingbird?
+  end
+
   def light(port)
     BirdbrainHummingbirdInput.light(device, port) if connected_and_valid?(port, VALID_SENSOR_PORTS)
   end

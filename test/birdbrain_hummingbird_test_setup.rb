@@ -5,15 +5,8 @@ require 'birdbrain_test'
 
 class BirdbrainHummingbirdTestSetup < BirdbrainMinitest
   def setup
-    ('A'..'C').each do |device|
-      @hummingbird = BirdbrainHummingbird.connect(device)
-
-      break if @hummingbird.hummingbird?
-    rescue BirdbrainException
-      next
-    end
-
-    @hummingbird_connected = !@hummingbird.nil? && @hummingbird.connected?
+    @hummingbird = BirdbrainFinch.find_device
+    @hummingbird_connected = @hummingbird.connected?
   end
 
   def after_teardown

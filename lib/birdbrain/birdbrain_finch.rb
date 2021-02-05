@@ -27,6 +27,10 @@ class BirdbrainFinch < BirdbrainMicrobit
     self.move_start_time = 0 # after move records how long it took the startup to complete for tuning
   end
 
+  def found_device?
+    finch?
+  end
+
   def moving?
     BirdbrainFinchInput.moving?(device) if connected?
   end

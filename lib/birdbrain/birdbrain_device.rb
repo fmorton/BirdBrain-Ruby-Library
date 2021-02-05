@@ -48,6 +48,18 @@ class BirdbrainDevice
     self.state = nil
   end
 
+  def self.find_device
+    ('A'..'C').each do |device|
+      device = connect(device)
+
+      return device if device.found_device?
+    rescue BirdbrainException
+      next
+    end
+
+    new(nil)
+  end
+
   def microbit?
     BirdbrainMicrobitInput.microbit?(device) if connected?
   end
