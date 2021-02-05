@@ -4,9 +4,9 @@ Ruby Library for the BirdBrainTechnologies Hummingbird Bit and Finch 2
 
 This Ruby library allows students to use Ruby to read sensors and set motors and LEDs with the Hummingbird Bit. To use Ruby with the Hummingbird Bit, you must connect to the Hummingbird Bit via bluetooth with the BlueBird Connector.
 
-For more information about setting up the BlueBird Connector used with their Python library, see www.birdbraintechnologies.com/hummingbirdbit/python/
+For more information about setting up the BlueBird Connector used with their Python library, see www.birdbraintechnologies.com/hummingbirdbit/python
 
-Rdoc files are available at https://rdoc.info/github/fmorton/BirdBrain-Ruby-Library/
+Rdoc files are available at https://rdoc.info/github/fmorton/BirdBrain-Ruby-Library
 
 ## Installation
 
@@ -24,7 +24,7 @@ Or install it yourself as:
 
     $ gem install birdbrain
 
-The library is distributed through https://rubygems.org/gems/birdbrain/
+The library is distributed through https://rubygems.org/gems/birdbrain
 
 ## Usage
 
@@ -81,7 +81,7 @@ sleep(1)
 finch.disconnect
 ```
 
-Rdoc files are available at https://rdoc.info/github/fmorton/BirdBrain-Ruby-Library/
+Rdoc files are available at https://rdoc.info/github/fmorton/BirdBrain-Ruby-Library
 
 ## Development
 
