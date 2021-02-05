@@ -4,7 +4,16 @@
 require 'birdbrain_hummingbird_test_setup'
 
 class BirdbrainMicrobitOutputTest < BirdbrainHummingbirdTestSetup
-  def test_microbit_output_display
+  def test_microbit_output
+    return unless @hummingbird_connected
+
+    microbit_output_display_test
+    microbit_output_display_state_test
+    microbit_output_point_test
+    microbit_output_print_test
+  end
+
+  def microbit_output_display_test
     led_list_numeric = [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
     led_list_boolean = [false, false, false, false, false, true, true, true, true, true, false, false, false, false, false, true,
                         true, true, true, true, false, false, false, false, false]
@@ -19,7 +28,7 @@ class BirdbrainMicrobitOutputTest < BirdbrainHummingbirdTestSetup
     end
   end
 
-  def test_microbit_output_display_state
+  def microbit_output_display_state_test
     led_list_mixed = [1, 1, 1, 1, true, 1, 0, false, 0, 1, 1, 0, 0, 0, 1, 1, false, 0, 0, 1, 1, 1, 1, 1, true]
 
     assert @hummingbird.microbit_display(led_list_mixed)
@@ -55,7 +64,7 @@ class BirdbrainMicrobitOutputTest < BirdbrainHummingbirdTestSetup
     assert @hummingbird.microbit_clear_display
   end
 
-  def test_microbit_output_point
+  def microbit_output_point_test
     assert @hummingbird.microbit_point(1, 1, 1)
     sleep(1)
     assert @hummingbird.microbit_point(2, 2, 1)
@@ -78,7 +87,7 @@ class BirdbrainMicrobitOutputTest < BirdbrainHummingbirdTestSetup
     assert @hummingbird.microbit_clear_display
   end
 
-  def test_microbit_output_print
+  def microbit_output_print_test
     assert @hummingbird.microbit_print('A TEST')
     sleep(4)
   end

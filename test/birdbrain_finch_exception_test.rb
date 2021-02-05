@@ -1,56 +1,22 @@
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Copyright (c) 2021 Base2 Incorporated--All Rights Reserved.
 #-----------------------------------------------------------------------------------------------------------------------------------
-require 'birdbrain_test'
+require 'birdbrain_finch_test_setup'
 
-class BirdbrainFinchExceptionTest < BirdbrainMinitest
+class BirdbrainFinchExceptionTest < BirdbrainFinchTestSetup
   def test_finch_exception_missing_device
-    assert_exception { !BirdbrainFinch.new(nil) }
+    assert_exception { !BirdbrainFinch.connect(nil) }
   end
 
   def test_finch_exception_invalid_device
-    assert_exception { !BirdbrainFinch.new('D') }
+    assert_exception { !BirdbrainFinch.connect('D') }
   end
 
   def test_finch_exception_no_connection
-    stub_for_nil_response do
-      assert_exception { @finch = BirdbrainFinch.new(BirdbrainTest::FINCH_TEST_DEVICE) }
-    end
-  end
-
-  def test_finch_excepton_lost_connection
-    @finch = BirdbrainFinch.new(BirdbrainTest::FINCH_TEST_DEVICE)
-
-    assert @finch.connected?
+    assert !BirdbrainFinch.connect.connected?
 
     stub_for_nil_response do
-      assert_nil @finch.moving?
-      assert_nil @finch.light(BirdbrainFinch::LEFT)
-      assert_nil @finch.distance
-      assert_nil @finch.line(BirdbrainFinch::LEFT)
-      assert_nil @finch.encoder(BirdbrainFinch::LEFT)
-      assert_nil @finch.accelerometer
-      assert_nil @finch.compass
-      assert_nil @finch.magnetometer
-      assert_nil @finch.orientation
-      assert_nil @finch.orientation_beak_up?
-      assert_nil @finch.orientation_beak_down?
-      assert_nil @finch.orientation_tilt_left?
-      assert_nil @finch.orientation_tilt_right?
-      assert_nil @finch.orientation_level?
-      assert_nil @finch.orientation_upside_down?
-      assert_nil @finch.beak(0, 0, 0)
-      assert_nil @finch.tail(1, 0, 0, 0)
-      assert_nil @finch.play_note(80, 2)
-      assert_nil @finch.move(BirdbrainFinch::FORWARD, 1, 1)
-      assert_nil @finch.turn(BirdbrainFinch::LEFT, 1, 1)
-      assert_nil @finch.motors(0, 0)
-      assert_nil @finch.stop
-      assert_nil @finch.reset_encoders
-
-      assert @finch.wait_until_movement
-      assert @finch.wait
-      assert @finch.wait_until_movement_and_wait
+      assert_exception { BirdbrainFinch.connect('A', true) }
     end
   end
 end

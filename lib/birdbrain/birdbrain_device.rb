@@ -12,14 +12,26 @@ class BirdbrainDevice
   attr_accessor :device
 
   def initialize(device = DEFAULT_DEVICE)
+    self.state = BirdbrainState.new
+    self.device = device
+    self.connected = nil
+  end
+
+  def self.connect(device = DEFAULT_DEVICE, raise_exception_if_no_connection = false)
     raise(BirdbrainException, 'Missing device name') if device.nil?
     raise(BirdbrainException, "Invalid device name: #{device}") unless VALID_DEVICES.include?(device)
 
-    self.state = BirdbrainState.new
-    self.device = device
-    self.connected = BirdbrainRequest.connected?(device)
+    device = new(device)
 
-    raise(BirdbrainException, 'No connection') unless connected?
+    device.connect
+
+    raise(BirdbrainException, 'No connection') if raise_exception_if_no_connection && !device.connected?
+
+    device
+  end
+
+  def connect
+    self.connected = BirdbrainRequest.connected?(device)
   end
 
   def connected?
@@ -31,7 +43,7 @@ class BirdbrainDevice
 
     state.microbit_display_map_clear unless state.nil?
 
-    self.connected = false
+    self.connected = nil
     self.device = nil
     self.state = nil
   end

@@ -5,7 +5,8 @@ require 'birdbrain_finch_test_setup'
 
 class BirdbrainFinchTest < BirdbrainFinchTestSetup
   def test_finch_connection
-    assert @finch.device == BirdbrainTest::FINCH_TEST_DEVICE
+    return unless @finch_connected
+
     assert @finch.connected?
   end
 end

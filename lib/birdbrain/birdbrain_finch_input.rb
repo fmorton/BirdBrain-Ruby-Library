@@ -13,7 +13,7 @@ class BirdbrainFinchInput < BirdbrainRequest
   ORIENTATION_IN_BETWEEN = 'In between'
 
   def self.finch?(device)
-    request_status(response_body('hummingbird', 'in', 'isHummingbird', 'static', device))
+    request_status(response_body('hummingbird', 'in', 'isFinch', 'static', device))
   end
 
   def self.moving?(device)

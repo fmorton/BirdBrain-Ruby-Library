@@ -4,14 +4,26 @@
 require 'birdbrain_finch_test_setup'
 
 class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
-  def test_finch_output_beak
+  def test_finch_input
+    return unless @finch_connected
+
+    finch_output_beak_test
+    finch_output_tail_test
+    finch_output_play_note_test
+    finch_output_move_test
+    finch_output_turn_test
+    finch_output_motors_test
+    finch_output_reset_encoders_test
+  end
+
+  def finch_output_beak_test
     assert @finch.beak(0, 60, 70)
     sleep(1)
     assert @finch.beak(0, 0, 0)
     sleep(1)
   end
 
-  def test_finch_output_tail
+  def finch_output_tail_test
     assert @finch.tail(1, 0, 60, 70)
     sleep(0.5)
     assert @finch.tail(2, 100, 40, 0)
@@ -36,7 +48,7 @@ class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
     sleep(0.5)
   end
 
-  def test_finch_output_play_note
+  def finch_output_play_note_test
     assert @finch.play_note(32, 4)
     sleep(5)
     assert @finch.play_note(65, 3)
@@ -45,7 +57,7 @@ class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
     sleep(5)
   end
 
-  def test_finch_output_move
+  def finch_output_move_test
     assert @finch.move(BirdbrainFinch::FORWARD, 10, 50)
     sleep(1)
     assert @finch.move(BirdbrainFinch::BACKWARD, 10, 50)
@@ -70,7 +82,7 @@ class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
     sleep(3)
   end
 
-  def test_finch_output_turn
+  def finch_output_turn_test
     assert @finch.turn(BirdbrainFinch::LEFT, 180, 50)
     sleep(1)
     assert @finch.turn(BirdbrainFinch::RIGHT, 180, 50)
@@ -85,13 +97,13 @@ class BirdbrainFinchOutputTest < BirdbrainFinchTestSetup
     sleep(3)
   end
 
-  def test_finch_output_motors
+  def finch_output_motors_test
     assert @finch.motors(10, -10)
     sleep(5)
     assert @finch.stop
   end
 
-  def test_finch_output_reset_encoders
+  def finch_output_reset_encoders_test
     assert @finch.reset_encoders
   end
 end

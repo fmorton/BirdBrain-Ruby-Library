@@ -4,13 +4,23 @@
 require 'birdbrain_hummingbird_test_setup'
 
 class BirdbrainHummingbirdOutputTest < BirdbrainHummingbirdTestSetup
-  def test_hummingbird_output_led
+  def test_hummingbird_output
+    return unless @hummingbird_connected
+
+    hummingbird_output_led_test
+    hummingbird_output_tri_led_test
+    hummingbird_output_servo_test
+    hummingbird_output_rotation_servo_test
+    hummingbird_output_play_note_test
+  end
+
+  def hummingbird_output_led_test
     assert @hummingbird.led(1, 100)
     sleep(1)
     assert @hummingbird.led(1, 0)
   end
 
-  def test_hummingbird_output_tri_led
+  def hummingbird_output_tri_led_test
     assert @hummingbird.tri_led(1, 0, 50, 100)
     sleep(1)
     assert @hummingbird.tri_led(1, 50, 100, 0)
@@ -20,7 +30,7 @@ class BirdbrainHummingbirdOutputTest < BirdbrainHummingbirdTestSetup
     assert @hummingbird.tri_led(1, 0, 0, 0)
   end
 
-  def test_hummingbird_output_servo
+  def hummingbird_output_servo_test
     assert @hummingbird.position_servo(1, 0)
     sleep(1)
     assert @hummingbird.position_servo(1, 180)
@@ -28,7 +38,7 @@ class BirdbrainHummingbirdOutputTest < BirdbrainHummingbirdTestSetup
     assert @hummingbird.position_servo(1, 90)
   end
 
-  def test_hummingbird_output_rotation_servo
+  def hummingbird_output_rotation_servo_test
     assert @hummingbird.rotation_servo(3, 100)
     sleep(1)
     assert @hummingbird.rotation_servo(3, 50)
@@ -41,7 +51,7 @@ class BirdbrainHummingbirdOutputTest < BirdbrainHummingbirdTestSetup
     sleep(1)
   end
 
-  def test_hummingbird_output_play_note
+  def hummingbird_output_play_note_test
     assert @hummingbird.play_note(32, 4)
     sleep(5)
     assert @hummingbird.play_note(65, 3)
