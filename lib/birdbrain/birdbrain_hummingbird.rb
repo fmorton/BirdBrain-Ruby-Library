@@ -9,7 +9,7 @@ class BirdbrainHummingbird < BirdbrainMicrobit
   VALID_SENSOR_PORTS = '123'
   VALID_SERVO_PORTS = '1234'
 
-  def found_device?
+  def valid_device?
     hummingbird?
   end
 

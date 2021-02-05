@@ -4,7 +4,7 @@
 class BirdbrainMicrobit < BirdbrainDevice
   VALID_BUTTONS = 'AB'
 
-  def found_device?
+  def valid_device?
     microbit?
   end
 

@@ -52,7 +52,7 @@ class BirdbrainDevice
     ('A'..'C').each do |device|
       device = connect(device)
 
-      return device if device.found_device?
+      return device if device.valid_device?
     rescue BirdbrainException
       next
     end
