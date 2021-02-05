@@ -13,8 +13,6 @@ class BirdbrainFinchExceptionTest < BirdbrainFinchTestSetup
   end
 
   def test_finch_exception_no_connection
-    assert !BirdbrainFinch.connect.connected?
-
     stub_for_nil_response do
       assert_exception { BirdbrainFinch.connect('A', true) }
     end

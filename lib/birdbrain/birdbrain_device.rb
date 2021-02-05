@@ -35,7 +35,7 @@ class BirdbrainDevice
   end
 
   def connected?
-    connected
+    !!connected
   end
 
   def disconnect

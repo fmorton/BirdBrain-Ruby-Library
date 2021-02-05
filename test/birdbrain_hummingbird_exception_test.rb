@@ -13,8 +13,6 @@ class BirdbrainHummingbirdExceptionTest < BirdbrainMinitest
   end
 
   def test_hummingbird_excepton_no_connection
-    assert !BirdbrainHummingbird.connect.connected?
-
     stub_for_nil_response do
       assert_exception { @hummingbird = BirdbrainHummingbird.connect('A', true) }
     end

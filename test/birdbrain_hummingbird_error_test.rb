@@ -23,7 +23,11 @@ class BirdbrainHummingbirdErrorTest < BirdbrainHummingbirdTestSetup
     assert !hummingbird.tri_led(3, 0, 0, 0)
   end
 
-  def test_hummingbird_excepton_lost_connection_for_hummingbird
+  def test_hummingbird_error_connection
+    assert BirdbrainHummingbird.connect.connected? == @hummingbird_connected
+  end
+
+  def test_hummingbird_error_lost_connection_for_hummingbird
     return unless @hummingbird_connected
 
     assert @hummingbird.connected?
