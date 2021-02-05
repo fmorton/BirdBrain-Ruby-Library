@@ -96,7 +96,7 @@ class BirdbrainFinch < BirdbrainMicrobit
   end
 
   def tail(port, r_intensity, g_intensity, b_intensity)
-    return unless connected_and_valid?(port, VALID_TAIL_PORTS)
+    return nil unless connected_and_valid?(port, VALID_TAIL_PORTS)
 
     if port.to_s == 'all'
       (2..5).each { |each_port| BirdbrainHummingbirdOutput.tri_led(device, each_port, r_intensity, g_intensity, b_intensity) }
@@ -135,7 +135,7 @@ class BirdbrainFinch < BirdbrainMicrobit
   end
 
   def move(direction, distance, speed, wait_to_finish_movement = true)
-    return false unless connected_and_valid?(direction, VALID_MOVE_DIRECTION)
+    return nil unless connected_and_valid?(direction, VALID_MOVE_DIRECTION)
 
     unless (response = BirdbrainFinchOutput.move(device, direction, distance, speed))
       return response
@@ -147,7 +147,7 @@ class BirdbrainFinch < BirdbrainMicrobit
   end
 
   def turn(direction, angle, speed, wait_to_finish_movement = true)
-    return false unless connected_and_valid?(direction, VALID_TURN_DIRECTION)
+    return nil unless connected_and_valid?(direction, VALID_TURN_DIRECTION)
 
     unless (response = BirdbrainFinchOutput.turn(device, direction, angle, speed))
       return response

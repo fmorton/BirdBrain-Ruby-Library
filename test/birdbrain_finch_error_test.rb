@@ -7,6 +7,15 @@ class BirdbrainFinchErrorTest < BirdbrainFinchTestSetup
   def test_finch_error_invalid_parameter
     finch = BirdbrainFinch.new
 
+    assert_nil finch.tail(nil, 0, 0, 0)
+    assert_nil finch.tail(0, 0, 0, 0)
+    assert_nil finch.tail(5, 0, 0, 0)
+    assert_nil finch.light('UNKNOWN')
+    assert_nil finch.line('UNKNOWN')
+    assert_nil finch.encoder('UNKNOWN')
+    assert_nil finch.move('UNKNOWN', 1, 1)
+    assert_nil finch.turn('UNKNOWN', 1, 1)
+
     assert !finch.tail(nil, 0, 0, 0)
     assert !finch.tail(0, 0, 0, 0)
     assert !finch.tail(5, 0, 0, 0)
