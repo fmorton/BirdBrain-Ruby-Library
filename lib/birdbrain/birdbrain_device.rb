@@ -18,16 +18,16 @@ class BirdbrainDevice
   end
 
   def self.connect(device = DEFAULT_DEVICE, raise_exception_if_no_connection = false)
+    device_object = new(device)
+
     raise(BirdbrainException, 'Missing device name') if device.nil?
     raise(BirdbrainException, "Invalid device name: #{device}") unless VALID_DEVICES.include?(device)
 
-    device = new(device)
+    device_object.connect
 
-    device.connect
+    raise(BirdbrainException, 'No connection') if raise_exception_if_no_connection && !device_object.connected?
 
-    raise(BirdbrainException, 'No connection') if raise_exception_if_no_connection && !device.connected?
-
-    device
+    device_object
   end
 
   def remap_device(device = DEFAULT_DEVICE)
