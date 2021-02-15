@@ -13,7 +13,7 @@ class BirdbrainDevice
 
   def initialize(device = DEFAULT_DEVICE)
     self.state = BirdbrainState.new
-    self.device = device
+    self.device = remap_device(device)
     self.connected = nil
   end
 
@@ -27,6 +27,10 @@ class BirdbrainDevice
 
     raise(BirdbrainException, 'No connection') if raise_exception_if_no_connection && !device.connected?
 
+    device
+  end
+
+  def remap_device(device = DEFAULT_DEVICE)
     device
   end
 
