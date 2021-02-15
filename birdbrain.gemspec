@@ -6,10 +6,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ['fmorton']
   spec.email         = ['fmorton@mac.com']
 
-  spec.summary       = 'Ruby Library for Hummingbird Bit (and maybe Finch 2 later)'
+  spec.summary       = 'Ruby Library for BirdBrain Technologies Hummingbird Bit and Finch 2'
   spec.description   = 'This Ruby library allows students to use Ruby to read sensors and set motors and LEDs with the '\
-                      'Birdbrain Technologies Hummingbird Bit. To use Ruby with the Hummingbird Bit, you must connect '\
-                      'to the Hummingbird Bit via bluetooth with the BlueBird Connector.'
+                      'Birdbrain Technologies Hummingbird Bit and Finch 2. To use Ruby with the Hummingbird Bit or '\
+                      'Finch 2, you must connect via bluetooth with the BlueBird Connector.'
   spec.homepage      = 'https://github.com/fmorton/BirdBrain-Ruby-Library'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
