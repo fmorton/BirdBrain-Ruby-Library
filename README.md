@@ -4,7 +4,7 @@ Ruby Library for the BirdBrainTechnologies Hummingbird Bit and Finch 2
 
 This Ruby library allows students to use Ruby to read sensors and set motors and LEDs with the Hummingbird Bit. To use Ruby with the Hummingbird Bit, you must connect to the Hummingbird Bit via bluetooth with the BlueBird Connector.
 
-For more information about setting up the BlueBird Connector used with their Python library, see www.birdbraintechnologies.com/hummingbirdbit/python
+For more information about setting up the BlueBird Connector used with their Python library, see https://learn.birdbraintechnologies.com/hummingbirdbit/python/?portal=1
 
 RubyDoc files are available at https://rubydoc.info/github/fmorton/BirdBrain-Ruby-Library
 
