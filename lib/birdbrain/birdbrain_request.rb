@@ -90,8 +90,8 @@ class BirdbrainRequest
     [x.send(type_method), y.send(type_method), z.send(type_method)]
   end
 
-  def self.calculate_angle(intensity)
-    intensity * 255 / 180
+  def self.calculate_angle(angle)
+    angle * 255 / 180
   end
 
   def self.calculate_intensity(intensity)
